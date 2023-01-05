@@ -1,0 +1,34 @@
+---
+import Nav from "./Nav.astro";
+
+import "../styles/footer.css"
+
+const year = new Date().getFullYear()
+---
+
+<div class="footer" >
+
+	<!-- <div class="footer-nav">
+		<Nav/>
+	</div> -->
+
+	<div class="info">
+		<div class="first-info">
+			<a href="">1</a>
+			<a href="">2</a>
+			<a href="">3</a>
+		</div>
+
+		<div class="redes">
+			<a href=""><img src="/images/instagram.png" alt=""></a>
+			<a href=""><img src="/images/meta.png" alt=""></a>
+			<a href=""><img src="/images/youtube.png" alt=""></a>
+			<a href=""><img src="/images/github.png" alt=""></a>
+		</div>
+
+		<div class="third-info">
+			<p> &#169 {year}<a href="https://github.com/dialmonsalve">dialmonsalve</a></p>
+		</div>
+	</div>
+
+</div>

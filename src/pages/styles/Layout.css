@@ -1,0 +1,42 @@
+body {
+	background-color: #3B3486;
+	min-height: 90vh;
+	padding-bottom: 8em;
+	position: relative;
+}
+
+h1 {
+	color: whitesmoke;
+	font-family: Montserrat;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+p {
+	color: whitesmoke;
+	font-family: Montserrat;
+}
+
+.container {
+	background-color: #7743DB;
+	border-radius: 0.25rem;
+	box-shadow: 0.12rem 0 1rem 0 #453464;
+	display: flex;
+	flex-direction: row;
+	gap: .25rem;
+	justify-content: flex-end;
+	margin: 1rem auto;
+	padding: 1.35rem;
+	width: 90%;
+}
+
+@media (max-width: 768px) {
+	.container{
+		display:block;
+		margin-top: 0;
+		padding: 0;
+		text-align: center;
+		width: 100%;
+	}
+}
+

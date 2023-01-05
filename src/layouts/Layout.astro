@@ -1,0 +1,45 @@
+---
+import Nav from "../components/landing/Nav.astro";
+import Footer from "../components/landing/Footer.astro";
+import '../pages/styles/Layout.css';
+
+import '../../public/styles/normalize.css'
+
+interface Props{
+	title:string
+}
+
+const {title} = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"/>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+
+		<title >Mi Project | { title }</title>
+
+	</head>
+	<body>
+
+		<main>
+
+			<div class="container">
+				<Nav/>				
+			</div>
+			
+			<slot/>
+
+				<Footer/>
+
+
+		</main>
+
+	</body>
+</html>

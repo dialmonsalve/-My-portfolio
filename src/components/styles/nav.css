@@ -1,0 +1,26 @@
+li {
+	list-style: none;
+}
+
+a {
+	border-radius: .5rem;
+	color: whitesmoke;
+	font-family: Montserrat;
+	padding: 0.75rem 0.75rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+	li {
+		border: 0.1rem solid whitesmoke;
+		cursor: pointer;
+		padding: 1rem;
+	}
+}
+
+@media (min-width: 769px) {
+	li a:hover {
+		background-color: #3B3486;
+	}
+}

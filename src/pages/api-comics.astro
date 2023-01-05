@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import '../pages/styles/Api-comics.css'
+
+const num = 16 
+
+const resp = await fetch(`https://xkcd.vercel.app/?comic=${num}`)
+const data = await resp.json()
+---
+
+<Layout title="Api comics">
+	<h1>Api comics</h1>
+
+	<astro-count>
+		<div class="container-comic">
+			<div>
+				<img class="img" src={data.img} alt="">
+				<p>Comic: <span>{num}</span></p>
+				<p>{data.safe_title}</p>
+
+			</div>			
+
+			<div class="buttons">
+				<button class="btn-less"><i class="fa-solid fa-circle-minus"></i></button>
+				<button class="random">Random</button>
+				<button class="btn-pluss" ><i class="fa-solid fa-circle-plus"></i></button>
+			</div>
+
+		</div>
+	</astro-count>
+
+
+</Layout>
+
+<script is:inline src="../../src/pages/js/AstroCount.js">
+
+</script>
