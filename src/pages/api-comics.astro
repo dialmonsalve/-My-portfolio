@@ -3,10 +3,6 @@ import Layout from '../layouts/Layout.astro';
 
 import '../pages/styles/Api-comics.css'
 
-const num = 16 
-
-const resp = await fetch(`https://xkcd.vercel.app/?comic=${num}`)
-const data = await resp.json()
 ---
 
 <Layout title="Api comics">
@@ -14,10 +10,8 @@ const data = await resp.json()
 
 	<astro-count>
 		<div class="container-comic">
-			<div>
-				<img class="img" src={data.img} alt="">
-				<p>Comic: <span>{num}</span></p>
-				<p>{data.safe_title}</p>
+			<p>Comic: <span></span></p>
+			<div class="data-api">
 
 			</div>			
 

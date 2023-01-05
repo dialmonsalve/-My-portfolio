@@ -2,38 +2,77 @@ class AstroCount extends HTMLElement{
 	constructor(){
 		super();
 		
-		let count = 10;
+		//this.count = Math.floor(Math.random() * (2720) + 1);
+		this.count = 0;
 
-		const Btnpluss = this.querySelector('.btn-pluss');
-		const BtnLess = this.querySelector('.btn-less');
+		const btnPluss = this.querySelector('.btn-pluss');
+		const btnLess = this.querySelector('.btn-less');
 		const countSpan = this.querySelector('span');
-		
-		Btnpluss.addEventListener('click', () =>{
+		const btnRandom = this .querySelector('.random')
 
-			count++
-			countSpan.textContent = count
+		btnPluss.addEventListener('click', () =>{
 
-			BtnLess.disabled = false
+			if(this.count >= 2720) {
+				btnPluss.disabled = true
+				return}	
 
-			this.searchData(count)
+			this.count++
+			countSpan.textContent = this.count
+			btnLess.disabled = false
+
+			this.searchData(this.count)
 			
 		});
 
-		BtnLess.addEventListener('click', () =>{
+		btnLess.addEventListener('click', () =>{
 
-			if(count < 2) {
-				BtnLess.disabled = true
+			if(this.count <= 1) {
+				btnLess.disabled = true
 				return}					
 
-			count--
-			countSpan.textContent = count
+			this.count--
+			countSpan.textContent = this.count
+			btnPluss.disabled = false
 
-			this.searchData(count)
+			this.searchData(this.count)
 
 		});
 
-	}	
+		btnRandom.addEventListener('click', () =>{
 
+			let min = Math.ceil(1)
+			let max = Math.floor(2720)
+
+			this.count = Math.floor(Math.random() * (max - min + 1) + 1)
+
+			countSpan.textContent = this.count
+
+			this.searchData(this.count)
+
+		})
+
+	}	
+	showData(data){
+
+		const divContainer = document.querySelector('.data-api')
+
+		while(divContainer.firstChild){
+			divContainer.removeChild(divContainer.firstChild)
+		}
+
+		const image = document.createElement('IMG')
+		image.classList.add('img')
+		image.setAttribute('src', data.img)
+		image.setAttribute('alt', data.alt)
+		image.setAttribute('id', data.num)
+
+		const parragraTitle = document.createElement('P')
+		parragraTitle.textContent= data.safe_title
+
+		divContainer.appendChild(image);
+		//divContainer.appendChild(parragrafCount);
+		divContainer.appendChild(parragraTitle);
+	}	
 	async searchData(count){
 
 		const DOMAIN = 'https://xkcd.vercel.app/?comic='
@@ -43,9 +82,7 @@ class AstroCount extends HTMLElement{
 		const resp = await fetch(path)
 		const data = await resp.json()
 
-		console.log(data)
+		this.showData(data)
+	}
 }
-	
-}
-
 customElements.define('astro-count', AstroCount)
