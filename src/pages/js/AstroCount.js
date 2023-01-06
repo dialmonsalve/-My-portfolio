@@ -12,8 +12,6 @@ class AstroCount extends HTMLElement{
 
 		btnPluss.addEventListener('click', () =>{
 
-			
-
 			if(this.count > 2719) {
 				btnPluss.classList.remove('btn-pluss')
 				btnPluss.classList.add('dissabled')

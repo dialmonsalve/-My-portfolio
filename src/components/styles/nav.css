@@ -13,14 +13,16 @@ a {
 
 @media (max-width: 768px) {
 	li {
-		border: 0.1rem solid whitesmoke;
 		cursor: pointer;
-		padding: 1rem;
+		padding: 0.4rem;
+	}
+	li:hover{
+		background-color: #5d30bf;
 	}
 }
 
 @media (min-width: 769px) {
 	li a:hover {
-		background-color: #3B3486;
+		background-color: #3b30af;
 	}
 }

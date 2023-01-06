@@ -28,18 +28,22 @@ const {title} = Astro.props
 	</head>
 	<body>
 
-		<main>
-
+		<nav>			
 			<div class="container">
 				<Nav/>				
 			</div>
+		</nav>
+
+			<header>
+				<slot/>
+			</header>
 			
-			<slot/>
-
+			<footer>
 				<Footer/>
+			</footer>
 
 
-		</main>
+
 
 	</body>
 </html>

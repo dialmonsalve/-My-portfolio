@@ -20,23 +20,63 @@ p {
 .container {
 	background-color: #7743DB;
 	border-radius: 0.25rem;
-	box-shadow: 0.12rem 0 1rem 0 #453464;
+	box-shadow: 1rem 0 1.8rem 0 #302e38;
 	display: flex;
 	flex-direction: row;
 	gap: .25rem;
 	justify-content: flex-end;
 	margin: 1rem auto;
-	padding: 1.35rem;
+	padding:0.7rem 1.35rem 1.3rem 1.35rem;
 	width: 90%;
 }
 
+.menu-items{
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+}
+
+.menu{
+	visibility:hidden;
+}
+
+
 @media (max-width: 768px) {
+
 	.container{
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		padding: 0.5rem 0 0;
+		position: relative;
+	}
+
+	.menu{
+		display: block;
+		color: #453464	;
+		cursor: pointer;
+		font-size: 2.5rem;
+		visibility:visible;
+	}
+	.menu:hover{
+		color: white;
+	}
+
+	.menu-items{
 		display:block;
 		margin-top: 0;
 		padding: 0;
 		text-align: center;
 		width: 100%;
+		position: absolute;		
+		transform: translateY(-600px);		
 	}
+
+	.active{		
+		position: static;
+		transform: translateY(0px);
+		transition: all 0.5s ease-in-out;		
+	}
+
 }
 
