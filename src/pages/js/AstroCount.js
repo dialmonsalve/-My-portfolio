@@ -6,33 +6,46 @@ class AstroCount extends HTMLElement{
 		this.count = 0;
 
 		const btnPluss = this.querySelector('.btn-pluss');
-		const btnLess = this.querySelector('.btn-less');
+		const btnLess = this.querySelector('.dissabled');
 		const countSpan = this.querySelector('span');
 		const btnRandom = this .querySelector('.random')
 
 		btnPluss.addEventListener('click', () =>{
 
-			if(this.count >= 2720) {
+			
+
+			if(this.count > 2719) {
+				btnPluss.classList.remove('btn-pluss')
+				btnPluss.classList.add('dissabled')
 				btnPluss.disabled = true
-				return}	
+				return
+			}	
 
 			this.count++
 			countSpan.textContent = this.count
 			btnLess.disabled = false
+			btnLess.classList.add('btn-less')
+			btnLess.classList.remove('dissabled')
 
 			this.searchData(this.count)
+			console.log( this.count)
 			
 		});
 
 		btnLess.addEventListener('click', () =>{
 
 			if(this.count <= 1) {
+				btnLess.classList.add('dissabled')
+				btnLess.classList.remove('btn-less')
 				btnLess.disabled = true
-				return}					
-
+				return
+			}
+			
 			this.count--
 			countSpan.textContent = this.count
 			btnPluss.disabled = false
+			btnPluss.classList.remove('dissabled')
+			btnPluss.classList.add('btn-pluss')
 
 			this.searchData(this.count)
 
@@ -72,6 +85,7 @@ class AstroCount extends HTMLElement{
 		divContainer.appendChild(image);
 		//divContainer.appendChild(parragrafCount);
 		divContainer.appendChild(parragraTitle);
+		
 	}	
 	async searchData(count){
 
