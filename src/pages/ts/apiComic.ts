@@ -1,14 +1,27 @@
-class AstroCount extends HTMLElement{
+	
+	interface Data{
+		img:string,
+		alt:string,
+		num:string,
+		safe_title:string
+	}
+
+export class AstroApiComic extends HTMLElement{
+
+	count:number
+	divContainer:HTMLDivElement
+
 	constructor(){
 		super();
 		
 		//this.count = Math.floor(Math.random() * (2720) + 1);
 		this.count = 0;
+		this.divContainer = document.querySelector('.data-api') as HTMLDivElement
 
-		const btnPluss = this.querySelector('.btn-pluss');
-		const btnLess = this.querySelector('.dissabled');
-		const countSpan = this.querySelector('span');
-		const btnRandom = this .querySelector('.random')
+		const btnPluss = this.querySelector('.btn-pluss') as HTMLButtonElement;
+		const btnLess = this.querySelector('.dissabled') as HTMLButtonElement;
+		const countSpan = this.querySelector('span') as HTMLSpanElement;
+		const btnRandom = this .querySelector('.random')as HTMLButtonElement;
 
 		btnPluss.addEventListener('click', () =>{
 
@@ -20,13 +33,12 @@ class AstroCount extends HTMLElement{
 			}	
 
 			this.count++
-			countSpan.textContent = this.count
+			countSpan.textContent = this.count as any
 			btnLess.disabled = false
 			btnLess.classList.add('btn-less')
 			btnLess.classList.remove('dissabled')
 
 			this.searchData(this.count)
-			console.log( this.count)
 			
 		});
 
@@ -40,7 +52,7 @@ class AstroCount extends HTMLElement{
 			}
 			
 			this.count--
-			countSpan.textContent = this.count
+			countSpan.textContent = this.count as any
 			btnPluss.disabled = false
 			btnPluss.classList.remove('dissabled')
 			btnPluss.classList.add('btn-pluss')
@@ -56,20 +68,43 @@ class AstroCount extends HTMLElement{
 
 			this.count = Math.floor(Math.random() * (max - min + 1) + 1)
 
-			countSpan.textContent = this.count
+			countSpan.textContent = this.count as any
 
 			this.searchData(this.count)
 
 		})
 
 	}	
-	showData(data){
-
-		const divContainer = document.querySelector('.data-api')
-
-		while(divContainer.firstChild){
-			divContainer.removeChild(divContainer.firstChild)
+	clearHTML(){
+		while(this.divContainer.firstChild){
+			this.divContainer.removeChild(this.divContainer.firstChild)
 		}
+	}
+	loadSpinner(){
+
+		//this.divContainer = document.querySelector('.data-api');
+
+		this.clearHTML()		
+
+		const spinner = document.createElement('DIV');
+		spinner.classList.add('sk-folding-cube');
+
+		spinner.innerHTML += `
+			<div class="sk-cube1 sk-cube"></div>
+			<div class="sk-cube2 sk-cube"></div>
+			<div class="sk-cube4 sk-cube"></div>
+			<div class="sk-cube3 sk-cube"></div>
+		`;
+
+		this.divContainer.appendChild(spinner);
+		console.log(spinner);
+	}
+	
+	showData(data:Data){
+
+		
+
+		this.clearHTML()
 
 		const image = document.createElement('IMG')
 		image.classList.add('img')
@@ -80,12 +115,13 @@ class AstroCount extends HTMLElement{
 		const parragraTitle = document.createElement('P')
 		parragraTitle.textContent= data.safe_title
 
-		divContainer.appendChild(image);
-		//divContainer.appendChild(parragrafCount);
-		divContainer.appendChild(parragraTitle);
+		this.divContainer.appendChild(image);
+		this.divContainer.appendChild(parragraTitle);
 		
 	}	
-	async searchData(count){
+	async searchData(count:number){
+
+		this.loadSpinner()		
 
 		const DOMAIN = 'https://xkcd.vercel.app/?comic='
 		const comicId = count ? `${count}/` : 'latest'
@@ -94,7 +130,10 @@ class AstroCount extends HTMLElement{
 		const resp = await fetch(path)
 		const data = await resp.json()
 
-		this.showData(data)
+		setTimeout(()=>{
+			this.showData(data)
+		},2000)
+
 	}
 }
-customElements.define('astro-count', AstroCount)
+customElements.define('astro-apicomic', AstroApiComic)

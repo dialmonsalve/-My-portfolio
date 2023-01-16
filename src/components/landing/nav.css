@@ -1,22 +1,3 @@
-body {
-	background-color: #3B3486;
-	min-height: 90vh;
-	padding-bottom: 8em;
-	position: relative;
-}
-
-h1 {
-	color: whitesmoke;
-	font-family: Montserrat;
-	text-align: center;
-	text-transform: uppercase;
-}
-
-p {
-	color: whitesmoke;
-	font-family: Montserrat;
-}
-
 .container {
 	background-color: #7743DB;
 	border-radius: 0.25rem;
@@ -40,8 +21,15 @@ p {
 	visibility:hidden;
 }
 
-
 @media (max-width: 768px) {
+
+	li {
+		cursor: pointer;
+		padding: 0.4rem;
+	}
+	li:hover{
+		background-color: #5d30bf;
+	}
 
 	.container{
 		display: flex;
@@ -75,8 +63,13 @@ p {
 	.active{		
 		position: static;
 		transform: translateY(0px);
-		transition: all 0.5s ease-in-out;		
+		transition: all 0.3s ease-in-out;		
 	}
 
 }
 
+@media (min-width: 769px) {
+	li a:hover {
+		background-color: #3b30af;
+	}
+}

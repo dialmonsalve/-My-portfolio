@@ -1,18 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import '../pages/styles/search-books.css'
+import '../pages/styles/apiBooks.css'
 ---
 <Layout title="Api books">
 
 		<div>
 			<h1>books</h1>
 		</div>
+
+		<div></div>
 		
 		<div class="container-form" id="search-form">			
 				<div class="form">
 
-					<astro-greet>
+					<astro-books>
 						<form id="form-search" name="form" >
 							<div class="form-control">
 								
@@ -20,7 +22,7 @@ import '../pages/styles/search-books.css'
 								<input type="submit" value="search" >
 							</div>
 						</form>
-					</astro-greet>
+					</astro-books>
 
 				</div>
 		</div>
@@ -31,7 +33,7 @@ import '../pages/styles/search-books.css'
 
 </Layout>
 
-<script is:inline src="../../src/pages/js/search-books.js"></script>
+<script is:inline type="module" src="src/pages/ts/searchBooks.ts"></script>
 
 
 

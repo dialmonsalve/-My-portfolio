@@ -1,3 +1,11 @@
 {
-  "extends": "astro/tsconfigs/strict"
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "Commonjs",
+    "strict":true,
+    "noImplicitAny":true,
+    "sourceMap": true,
+    "removeComments": true,
+  },
+  "extends": "astro/tsconfigs/base"
 }

@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import '../pages/styles/Api-comics.css'
+import '../pages/styles/apiComics.css'
 
 ---
 
 <Layout title="Api comics">
 	<h1>Api comics</h1>
 
-	<astro-count>
+	<astro-apicomic>
 		<div class="container-comic">
 			<p>Comic: <span></span></p>
 			<div class="data-api">
@@ -22,11 +22,11 @@ import '../pages/styles/Api-comics.css'
 			</div>
 
 		</div>
-	</astro-count>
+	</astro-apicomic>
 
 
 </Layout>
 
-<script is:inline src="../../src/pages/js/AstroCount.js">
+<script is:inline type="module" src="src/pages/ts/apiComic.ts">
 
 </script>
