@@ -82,8 +82,6 @@ export class AstroApiComic extends HTMLElement{
 	}
 	loadSpinner(){
 
-		//this.divContainer = document.querySelector('.data-api');
-
 		this.clearHTML()		
 
 		const spinner = document.createElement('DIV');
@@ -97,12 +95,10 @@ export class AstroApiComic extends HTMLElement{
 		`;
 
 		this.divContainer.appendChild(spinner);
-		console.log(spinner);
+
 	}
 	
 	showData(data:Data){
-
-		
 
 		this.clearHTML()
 
@@ -113,7 +109,7 @@ export class AstroApiComic extends HTMLElement{
 		image.setAttribute('id', data.num)
 
 		const parragraTitle = document.createElement('P')
-		parragraTitle.textContent= data.safe_title
+		parragraTitle.textContent= `Title: ${data.safe_title}`
 
 		this.divContainer.appendChild(image);
 		this.divContainer.appendChild(parragraTitle);
@@ -132,7 +128,7 @@ export class AstroApiComic extends HTMLElement{
 
 		setTimeout(()=>{
 			this.showData(data)
-		},2000)
+		},1000)
 
 	}
 }

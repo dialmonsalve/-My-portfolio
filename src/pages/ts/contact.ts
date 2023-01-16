@@ -8,10 +8,6 @@
 
 		this.resultado = document.querySelector("#weare")
 
-		console.log(this.resultado);
-
-
-		
 	}
 	genericfunc=(element:HTMLElement):HTMLElement=>{
 		console.log(element);
