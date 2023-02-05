@@ -1,15 +1,16 @@
 ---
-import Nav from "../components/landing/Nav.astro";
+import Header from "../components/landing/Header.astro";
+import Navigation from "../components/landing/Navigation.astro";
 import Footer from "../components/landing/Footer.astro";
-import './layout.css';
 
-import '../../public/styles/normalize.css'
+
+import '../sass/layout/layout.scss';
 
 interface Props{
-	title:string
+	title:string,
 }
 
-const {title} = Astro.props
+const { title } = Astro.props
 
 ---
 
@@ -19,13 +20,14 @@ const {title} = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-
 		<link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"/>
+
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 		
 		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
 
@@ -33,20 +35,18 @@ const {title} = Astro.props
 
 	</head>
 	<body>
-		
-		<nav>			
-				<Nav/>	
-		</nav>
-
-			<header class="header" >
-				<div class="container">
-					<slot/>
-				</div>
-			</header>
+		<Navigation />
+		<div class="container">
 			
-			<footer>
-				<Footer/>
-			</footer>
+			<Header title={ title }/>
+
+			<slot/>
+			<Footer/>
+		</div>
+			
+
+		
+
 
 	</body>
 </html>

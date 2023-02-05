@@ -1,8 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-import '../pages/styles/apiComics.css'
-
+import Layout from '../layout/Layout.astro';
 ---
 
 <Layout title="Api comics">
@@ -37,6 +34,8 @@ import '../pages/styles/apiComics.css'
 
 </Layout>
 
-<script is:inline type="module" src="src/pages/ts/apiComic.ts">
+<script is:inline type="module" src="src/ts/AstroApiComic.ts">
+import { AstroApiComic } from "./ts/apiComic";
+
 
 </script>

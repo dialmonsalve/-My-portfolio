@@ -1,4 +1,4 @@
-p{
+/* p{
   margin: 0.25rem;
 }
 p span{
@@ -50,7 +50,6 @@ a:hover{
 	display: flex;
 	flex-direction: row;
 	gap: 2rem;
-	/* background-color: transparent; */
 	flex-wrap: nowrap;
 	margin-bottom: 3rem;
   filter: invert(1);
@@ -60,7 +59,6 @@ a:hover{
 .btn-less, .random, .btn-pluss{	
 	cursor: pointer;
 	background-color: transparent;
-	/* color:  whitesmoke */;
 	font-weight: 600;
 	font-size: 1.4rem;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
@@ -190,7 +188,7 @@ a:hover{
     transform: none;
   }
 }
-
+ */
 
 
 

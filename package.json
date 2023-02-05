@@ -8,10 +8,15 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "compile:sass": "node-sass sass/main.scss css/style.css",
+    "watch-css": "nodemon -e scss -x \"npm run compile:sass\""
   },
   "dependencies": {
     "astro": "^1.8.0",
     "superagent": "^8.0.6"
+  },
+  "devDependencies": {
+    "sass": "^1.58.0"
   }
 }

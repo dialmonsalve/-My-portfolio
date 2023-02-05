@@ -1,34 +1,38 @@
 ---
-import Nav from "./Nav.astro";
-
-import "./footer.css"
-
 const year = new Date().getFullYear()
 ---
+<footer class="footer">
+	<div class="footer__logo-box">
 
-<div class="footer" >
+			<picture class="footer__logo">
+					<source 
+							srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" 
+							media="(max-width: 37.5em)">
+					<img 
+					srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" 
+					alt="Full logo">
+			</picture>
 
-	<!-- <div class="footer-nav">
-		<Nav/>
-	</div> -->
-
-	<div class="info">
-		<div class="first-info">
-			<a href="">1</a>
-			<a href="">2</a>
-			<a href="">3</a>
-		</div>
-
-		<div class="redes">
-			<a href=""><img src="/images/instagram.png" alt=""></a>
-			<a href=""><img src="/images/meta.png" alt=""></a>
-			<a href=""><img src="/images/youtube.png" alt=""></a>
-			<a href=""><img src="/images/github.png" alt=""></a>
-		</div>
-
-		<div class="third-info">
-			<p> &#169 {year}<a href="https://github.com/dialmonsalve">dialmonsalve</a></p>
-		</div>
 	</div>
-
-</div>
+	<div class="footer__row">
+			<div class="col-1">
+					<div class="footer__navigation">
+							<u class="footer__list">
+									<li class="footer__item"><a href="#" class="footer__link">Company</a></li>                   <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+									<li class="footer__item"><a href="#" class="footer__link">carrers</a></li>
+									<li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
+									<li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+							</u>
+					</div>
+			</div>
+			<div class="col-2">
+					<p class="footer__copyright">
+							Built my <a href="#" class="footer__link">Diego Monsalve</a>for his online course <a href="#" class="footer__link">Advanced and Sass</a>. Copyright &copy; by Diego Monsalve. You are 100% allowed to use this webpage for both personal and commercial use, but NOT to claim it as your own design. A credit to original author, Diego Monsalve, is of course highly appreciarted!
+							
+					</p>
+					
+			</div>
+	</div>
+	<!-- <p> &#169 {year}<a href="https://github.com/dialmonsalve">dialmonsalve</a></p> -->
+	
+</footer>
