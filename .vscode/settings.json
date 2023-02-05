@@ -1,7 +1,7 @@
 {
 	"editor.fontSize": 14,
 	"editor.minimap.enabled": false,
-	"window.zoomLevel": 1,
+	"window.zoomLevel": 0,
 	"editor.wordWrap": "on",
 	"workbench.colorTheme": "Ocean High Contrast",
 	"terminal.integrated.defaultProfile.windows": "Git Bash",
