@@ -1,0 +1,81 @@
+@import './variables';
+
+//Btn active in comic page
+@mixin btn(
+	$left-top:0, $right-top:0, $right-bottom:0, $left-bottom:0, $color: $color-tertiary-dark
+	){
+	border-radius: $left-top $right-top $right-bottom $left-bottom;
+	border: none;
+	box-shadow: .1rem .2rem .5rem rgb(58, 57, 110);
+	cursor: pointer;
+	font-size: 2rem;
+	padding: 1.2rem 1.7rem;
+	outline: none;
+	color: $color;
+
+
+	&:focus,
+	&:hover	 {
+		background-color: $color-tertiary-dark;
+		color: #fff;
+	}
+
+	&:active {
+
+		box-shadow: 0px 0px 0px rgb(58, 57, 110);
+		animation: anim-shadow .3s forwards;
+	}
+
+	@keyframes anim-shadow {
+		100% {
+			box-shadow: 0 0 50px 20px rgba(112, 111,211,1);
+		}
+	}
+
+}
+
+@mixin btn-inactive(
+	$left-top:0, $right-top:0, $right-bottom:0, $left-bottom:0
+	){
+	@include btn($left-top,  $right-top, $right-bottom , $left-bottom,$color-grey-dark-2);
+
+	&:not(:focus),
+	&:not(:hover)	 {
+		background-color: $color-grey-dark-2;
+		color: #fff;
+    cursor: default;
+	}
+
+  &:not(:active) {
+		animation: anim-shadow .3s forwards;
+	}
+
+  @keyframes anim-shadow {
+		100% {
+			box-shadow: 0 0 50px 20px transparent;
+		}
+	}
+
+}
+
+.inactive--plus {
+  @include btn(0, 30%, 30% , 0,$color-grey-dark-2);
+  margin-left: 2rem;
+
+  &:not(:focus),
+	&:not(:hover)	 {
+		background-color: $color-grey-dark-2;
+		color: #fff;
+    cursor: default;
+	}
+
+  &:not(:active) {
+		animation: anim-shadow .3s forwards;
+	}
+
+  @keyframes anim-shadow {
+		100% {
+			box-shadow: 0 0 50px 20px #fff
+		}
+	}
+}

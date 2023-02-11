@@ -1,16 +1,16 @@
 .header {
 	display: flex;
 	flex-direction: column;
-	height: 95vh;
+	height: 75vh;
 	background-image:
 	linear-gradient(
 		to right bottom,
 		rgba($color-primary-light, 0.8),
 		rgba($color-primary-dark,0.8)),
-	url('../../assets/2248.jpg');
+	url('../assets/2248.jpg');
 	background-size: cover;
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 100% );
-	clip-path: polygon(0 0, 100% 0, 100% 65vh, 0 100% );
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 55vh, 0 100% );
+	clip-path: polygon(0 0, 100% 0, 100% 55vh, 0 100% );
 	background-position: top;
 
 	&__logo-box {
@@ -29,4 +29,10 @@
 		margin:  20rem auto;
 		transform: translate(0, -50%);
 	}
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }

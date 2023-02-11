@@ -9,12 +9,11 @@
 		padding: 1.5rem 4rem;
 		display: inline-block;
 		border-radius: 10rem;
-		transition: all .2s;
+		transition: all 1s ease-in-out;
 		position: relative;
 		font-size:$default-font-size;
 		border:none;
-		cursor: pointer;
-		/* margin-left: 10rem; */
+		/* cursor: pointer; */
 	}
 
 	&:hover {
@@ -33,7 +32,7 @@
 		transform: translateY(-.1rem);
 		box-shadow: 0 0.5rem 1rem rgba($color-black,.2);
 	}
-	
+		
 	&--white {
 		background-color: $color-white;
 		color: $color-grey-dark-1;
@@ -54,7 +53,6 @@
 	
 	&::after {
 		content: "";
-		/* display: inline-block; */
 		height: 100%;
 		width: 100%;
 		border-radius: 10rem;
@@ -94,5 +92,11 @@
 	&:active {
 		box-shadow: 0 .5rem 1rem rgba($color-black,.15);
 		transform: translateY(0);
+	}
+}
+
+@keyframes anim-shadow {
+	100% {
+		box-shadow: 0 0 50px rgba(112,111,211,0);
 	}
 }

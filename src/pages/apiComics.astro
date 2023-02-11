@@ -1,41 +1,50 @@
 ---
-import Layout from '../layout/Layout.astro';
+import Layout from "../layout/Layout.astro";
+
+import "../sass/pages/apiComics.scss";
 ---
 
-<Layout title="Api comics">
-	<h1>Search a comic</h1>
+<Layout title="Api comics" subtitle='Search comic'>
 
-	<div>
-		<p>On this page you will find comics from page: 
-			<i><a target="_blank" href="https://xkcd.com/">https://xkcd.com/</a></i>
-		</p>
-
-	</div>
-
-	<astro-apicomic>
-		<div class="padre">
-
+	<div class="content">
+		<astro-comic>
 			<div class="container-comic">
-				<h4>Comic<p><span>click on the buttons to search</span></p></h4>
-				<div class="data-api">
-			</div>
+				<h4 class="container-comic__title u-margin-bottom-small">
+					Comic
+					<span class="container-comic__count"></span>
+				</h4>
 
-			</div>			
+				<div class="container-data"></div>
 
-			<div class="buttons">
-				<button class="dissabled"><i class="fa-solid fa-circle-minus"></i></button>
-				<button class="random">Random</button>
-				<button class="btn-pluss" ><i class="fa-solid fa-circle-plus"></i></button>
-			</div>
+				<div class="container-buttons">
+					<div class="container-buttons__btn">
+						<button
+							disabled
+							class="container-buttons__btn--minus inactive--minus"
+							><i class="fa-solid fa-circle-minus"></i>
+						</button>
 
-		</div>
-	</astro-apicomic>
+						<button class="container-buttons__btn--random">Random</button>
 
+						<button class="container-buttons__btn--plus"
+							><i class="fa-solid fa-circle-plus"></i>
+						</button>
+					</div><!-- !container-buttons__btn -->
 
+					<p class="container-buttons__link">
+						Comics from:
+						<i
+							><a
+								class="container-buttons__link--a"
+								target="_blank"
+								href="https://xkcd.com/">https://xkcd.com/</a
+							>
+						</i>
+					</p>
+				</div><!-- !container-buttons -->
+			</div><!-- !container-comic -->
+		</astro-comic>
+	</div><!-- !content -->
 </Layout>
 
-<script is:inline type="module" src="src/ts/AstroApiComic.ts">
-import { AstroApiComic } from "./ts/apiComic";
-
-
-</script>
+<script is:inline type="module" src="src/ts/apiComic"></script>

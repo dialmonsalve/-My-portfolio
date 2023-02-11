@@ -8,6 +8,10 @@ interface Item{
 	}
 }
 
+export const consola = () => {
+	console.log("first")
+}
+
 export class AstroBooks extends HTMLElement {
 	
 	resultado:HTMLDivElement;

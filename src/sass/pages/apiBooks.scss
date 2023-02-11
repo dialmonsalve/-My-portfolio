@@ -1,0 +1,76 @@
+@import "../abstracts/variables";
+
+.section-books {
+	display: flex;
+	padding: 5rem 0;
+	align-items: center;
+}
+
+// SEARCH
+.search {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 5rem;
+	flex-grow: 1;
+
+
+
+	&__input {
+			font-family: inherit;
+			font-size: 2rem;
+			color: inherit;
+			background-color: rgb(58, 57, 110);;
+			border: none;
+			padding: 1rem 1.5rem;
+			border-radius: 20px;
+			transition: all .2s;
+			margin-right: -3.25rem;
+			width: 95%;
+
+
+			&:focus {
+					outline: none;
+					background-color: $color-grey-light-3;
+					width: 100%;
+			}
+
+			&::-webkit-input-placeholder {
+					font-weight: 100;
+					color: $color-grey-light-4;
+			}
+	}
+
+	&__input:focus + &__button {
+			background-color: $color-grey-light-3;
+	}
+
+	&__button {
+		padding: .7rem 1.5em;
+		font-weight: bold;
+		color: $color-grey-dark-1;
+		background-color: #fff;
+		border: 1px solid rgba(112, 111,211,0);
+		border-radius: 15px;
+		outline: none;
+		transition: .3s ease-in-out;
+		text-transform: uppercase;
+		cursor: pointer;
+/* 		position: absolute;
+		right: 3rem; */
+
+	}
+	
+	&__button:focus {
+		color: #706fd3;
+		border: 2px solid rgba(112, 111,211,1);
+		box-shadow: 0px 0px 1px rgb(58, 57, 110);
+		animation: anim-shadow .3s forwards;
+	}
+	
+	@keyframes anim-shadow {
+		100% {
+			box-shadow: 0 0 50px 20px rgba(112,111,211,0);
+		}
+	}
+
+}

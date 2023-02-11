@@ -1,0 +1,117 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.content {
+  padding: 8rem 0;
+  background-image: linear-gradient(to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)),
+    url(../../assets/2248.jpg);
+  background-size: cover;
+  transform: skewY(-8deg);
+  margin: 5rem 0 18rem;
+
+  &>* {
+    transform: skewY(8deg);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-comic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: $default-font-size * 2.5;
+    color: $color-primary-dark;
+    position: relative;
+  }
+
+  &__count {
+    color: $color-secondary-light;
+    font-size: $default-font-size * 1.7;
+    top: 1.5rem;
+    right: -8rem;
+    position: absolute;
+  }
+}
+
+.container-buttons {
+  display: flex;
+  flex-direction: column;
+
+  &__btn {
+    padding: 2rem 0;
+    margin: 0 auto;
+
+    &--minus {
+      @include btn(30%, 0, 0, 30%);
+      margin-right: 2rem;
+
+    }
+
+    &--random {
+      @include btn(5%, 5%, 5%, 5%);
+    }
+
+    &--plus {
+      @include btn(0, 30%, 30%, 0);
+      margin-left: 2rem;
+    }
+  }
+
+  &__link {
+    color: $color-grey-dark-3;
+    align-self: flex-end;
+    font-size: $default-font-size;
+
+    &--a {
+      text-decoration: none;
+
+      &:visited,
+      &:link {
+        color: $color-grey-dark-3;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        color: $color-secondary-light;
+      }
+    }
+  }
+}
+
+.container-data {
+  height: 40rem;
+  width: 100%;
+  overflow-y: hidden;
+
+  &__legend {
+    font-size: $default-font-size * 1.5;
+    color: $color-secondary-light;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    color: #362FD9;
+    margin-bottom: 1rem;
+  }
+}
+
+.inactive--minus {
+  @include btn-inactive(30%, 0, 0, 30%);
+  margin-right: 2rem;
+}
+
+.inactive--plus {
+  @include btn-inactive(0, 30%, 30%, 0);
+  margin-left: 2rem;
+}

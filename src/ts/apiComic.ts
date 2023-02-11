@@ -1,4 +1,5 @@
-	
+import { validPlus, validMinus }from './helpers/countValidation'
+
 	interface Data{
 		img:string,
 		alt:string,
@@ -14,61 +15,42 @@ export class AstroApiComic extends HTMLElement{
 	constructor(){
 		super();
 		
-		//this.count = Math.floor(Math.random() * (2720) + 1);
-		this.count = 0;
-		this.divContainer = document.querySelector('.data-api') as HTMLDivElement
+		this.count = 1;
 
-		const btnPluss = this.querySelector('.btn-pluss') as HTMLButtonElement;
-		const btnLess = this.querySelector('.dissabled') as HTMLButtonElement;
-		const countSpan = this.querySelector('span') as HTMLSpanElement;
-		const btnRandom = this .querySelector('.random')as HTMLButtonElement;
+		this.divContainer = document.querySelector('.container-data') as HTMLDivElement
+		const btnPlus = this.querySelector('.container-buttons__btn--plus')
+		const btnLess = this.querySelector('.container-buttons__btn--minus') 
+		const countSpan = this.querySelector('span');
+		const btnRandom = this .querySelector('.container-buttons__btn--random')
 
-		btnPluss.addEventListener('click', () =>{
+		this.searchData(this.count)
 
-			if(this.count > 2719) {
-				btnPluss.classList.remove('btn-pluss')
-				btnPluss.classList.add('dissabled')
-				btnPluss.disabled = true
-				return
-			}	
+		if(btnPlus === null ) return		
+		if(btnLess === null ) return
+		if(countSpan === null ) return
 
+		btnPlus.addEventListener('click', () =>{
 			this.count++
-			countSpan.textContent = this.count as any
-			btnLess.disabled = false
-			btnLess.classList.add('btn-less')
-			btnLess.classList.remove('dissabled')
-
+			validPlus({count:this.count, btnPlus, btnLess,  countSpan})
 			this.searchData(this.count)
-			
 		});
 
 		btnLess.addEventListener('click', () =>{
-
-			if(this.count <= 1) {
-				btnLess.classList.add('dissabled')
-				btnLess.classList.remove('btn-less')
-				btnLess.disabled = true
-				return
-			}
-			
 			this.count--
-			countSpan.textContent = this.count as any
-			btnPluss.disabled = false
-			btnPluss.classList.remove('dissabled')
-			btnPluss.classList.add('btn-pluss')
+			validMinus({count:this.count, btnPlus, btnLess, countSpan});
+			this.searchData(this.count)		
+		})
 
-			this.searchData(this.count)
-
-		});
+		if(btnRandom === null ) return
 
 		btnRandom.addEventListener('click', () =>{
 
 			let min = Math.ceil(1)
-			let max = Math.floor(2720)
+			let max = Math.floor(2734)
 
 			this.count = Math.floor(Math.random() * (max - min + 1) + 1)
 
-			countSpan.textContent = this.count as any
+			countSpan.textContent = this.count.toString()
 
 			this.searchData(this.count)
 
@@ -76,6 +58,9 @@ export class AstroApiComic extends HTMLElement{
 
 	}	
 	clearHTML(){
+
+		if(this.divContainer === null ) return
+
 		while(this.divContainer.firstChild){
 			this.divContainer.removeChild(this.divContainer.firstChild)
 		}
@@ -85,19 +70,15 @@ export class AstroApiComic extends HTMLElement{
 		this.clearHTML()		
 
 		const spinner = document.createElement('DIV');
-		spinner.classList.add('sk-folding-cube');
+		spinner.classList.add('sk-folding-circle');
 
 		spinner.innerHTML += `
-			<div class="sk-cube1 sk-cube"></div>
-			<div class="sk-cube2 sk-cube"></div>
-			<div class="sk-cube4 sk-cube"></div>
-			<div class="sk-cube3 sk-cube"></div>
+			<div class="sk-folding-circle__hourglass"></div>
 		`;
 
 		this.divContainer.appendChild(spinner);
-
 	}
-	
+
 	showData(data:Data){
 
 		this.clearHTML()
@@ -107,12 +88,14 @@ export class AstroApiComic extends HTMLElement{
 		image.setAttribute('src', data.img)
 		image.setAttribute('alt', data.alt)
 		image.setAttribute('id', data.num)
+		image.setAttribute('class', 'container-data__img')
 
-		const parragraTitle = document.createElement('P')
-		parragraTitle.textContent= `Title: ${data.safe_title}`
+		const paragraphTitle = document.createElement('P')
+		paragraphTitle.setAttribute('class', 'container-data__subtitle')
+		paragraphTitle.textContent= `Title: ${data.safe_title}`
 
+		this.divContainer.appendChild(paragraphTitle);
 		this.divContainer.appendChild(image);
-		this.divContainer.appendChild(parragraTitle);
 		
 	}	
 	async searchData(count:number){
@@ -128,8 +111,8 @@ export class AstroApiComic extends HTMLElement{
 
 		setTimeout(()=>{
 			this.showData(data)
-		},1000)
+		},500)
 
 	}
 }
-customElements.define('astro-apicomic', AstroApiComic)
+customElements.define('astro-comic', AstroApiComic)

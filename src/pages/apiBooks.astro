@@ -1,47 +1,27 @@
 ---
-import Layout from '../layout/Layout.astro';
-
+import Layout from "../layout/Layout.astro";
+import "../sass/pages/apiBooks.scss";
 ---
-<Layout title="Api books">
 
-		<div>
-			<h1>books</h1>
-		</div>
+<Layout title="Api books" subtitle="books" >
+  <main>
+    <section class="section-books">
 
-		<div></div>
+			<astro-books>  <!-- !Class Astro -->
+				
+				<form id="form-search" name="form">
+					<div class="search">
+						<input autocomplete="off" type="text" name="search" id="search"class="search__input" placeholder="Search books" />
+						<button class="search__button" >Search</button>
+					</div>
+				</form>
+
+				<div class="grid-card" id="container-books"></div>
+				</astro-books>
 		
-		<div class="container-form" id="search-form">			
-				<div class="form">
-
-					<astro-books>
-						<form id="form-search" name="form" >
-							<div class="form-control">
-								
-								<input 
-									autocomplete="off" 
-									type="text"
-									name="search"
-									id="search"
-									/>
-								<input 
-									type="submit" 
-									value="search" 
-								>
-							</div>
-						</form>
-					</astro-books>
-
-				</div>
-		</div>
-		
-		<div class="grid-card" id="container-books">
-		
-		</div>
+    </section>
+  </main>
 
 </Layout>
 
-<script is:inline type="module" src="src/ts/searchBooks.ts"></script>
-
-
-
-
+<script is:inline type="module" src="src/ts/apiBooks.ts"></script>
