@@ -1,16 +1,53 @@
 ---
-import Layout from '../layout/Layout.astro';
-
+import Layout from "../layout/Layout.astro";
+import "../sass/pages/index.scss";
 ---
 
-<Layout title="Home" subtitle="home">
+<Layout title="Home" subtitle="I am Diego Monsalve">
+	
+  <div class="index">
 
+		<section class="container-photo">
+			<img class="container-photo__photo" src="me.png" alt="Diego Monsalve" />
+			<p class="container-photo__presentation">
+				productivity and quality engineer
+				<span class="container-photo__presentation--span"> Js programmer</span>
+			</p>
+		</section>
 
-<h1>Index</h1>
+    <section class="resume">
+			
+			<article class="skills">
+				<h4 class="skills__subtitle">Resume</h4>
+        <ul class="skills__ul">
+          <li class="skills__ul--item">I have been a productivity and quality engineer since 2021.</li>
 
-<p>home</p>
+          <li class="skills__ul--item">I have been working since I was 18 years old.</li>
 
+          <li class="skills__ul--item">In my life, my special skills are in logistics and inventory</li>
+					
+          <li class="skills__ul--item">
+            Since three years I have learned a lot of things about Python like:
+            functions, POO, decorators, among others, css and librares like sass, bootstrap and tailwind
+          </li>
 
+          <li class="skills__ul--item">
+            Since one year I have learned a lot of things about Javascript
+            like: functions, React, npm, gulp, among others
+          </li>
 
+        </ul>
+      </article>
 
+      <article class="hobbies">
+        <h4 class="hobbies__subtitle">Hobbies</h4>
+        <p class="hobbies__paragraph">
+          I am a person who likes listening to music and riding a bike, coding,
+          green life, animals, drinking coffee. But there is something that I
+          like to do more than anything in my whole life and that is to spend
+          time with my family.
+        </p>
+      </article>
+    </section>
+  </div>
 </Layout>
