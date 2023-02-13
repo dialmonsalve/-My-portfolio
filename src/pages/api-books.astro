@@ -1,0 +1,36 @@
+---
+import Layout from "../layout/Layout.astro";
+import "../sass/pages/api-books.scss";
+
+
+---
+
+<Layout title="Api books" subtitle="books" >
+
+	<section class="content-book">
+
+		<astro-books>  <!-- !Class Astro -->		
+			<form id="form-search" name="form" class="search u-margin-bottom-small" >
+
+					<input 
+						autocomplete="off" 
+						type="text" 
+						name="search" 
+						id="search"
+						class="search__input" 
+						placeholder="Search books"/>
+
+					<button class="search__button">
+						<svg class="search__icon">
+								<use xlink:href="../img/sprite.svg#icon-magnifying-glass"></use>
+						</svg>
+					</button>
+				</form>
+		</astro-books>
+		<div class="grid-cards" id="container-books"></div>
+	</section>
+
+</Layout>
+
+<script type="module" src="src/ts/api-books.ts"></script>
+

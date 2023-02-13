@@ -1,17 +1,17 @@
 ---
 import Layout from "../layout/Layout.astro";
 
-import "../sass/pages/apiComics.scss";
+import "../sass/pages/api-comics.scss";
 ---
 
 <Layout title="Api comics" subtitle='Search comic'>
 
-	<div class="content">
+	<section class="content-comic">
 		<astro-comic>
 			<div class="container-comic">
 				<h4 class="container-comic__title u-margin-bottom-small">
 					Comic
-					<span class="container-comic__count"></span>
+					<span class="container-comic__count">1</span>
 				</h4>
 
 				<div class="container-data"></div>
@@ -44,7 +44,7 @@ import "../sass/pages/apiComics.scss";
 				</div><!-- !container-buttons -->
 			</div><!-- !container-comic -->
 		</astro-comic>
-	</div><!-- !content -->
+	</section><!-- !content -->
 </Layout>
 
-<script is:inline type="module" src="src/ts/apiComic"></script>
+<script  type="module" src="src/ts/api-comics"></script>
