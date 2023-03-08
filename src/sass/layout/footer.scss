@@ -1,40 +1,76 @@
+@import '../abstracts/variables.scss';
+@import '../abstracts/mixins.scss';
+
 .footer {
 	background-color: $color-grey-dark-1;
-	padding: 10rem 0;
 	font-size: 1.4rem;
 	color: $color-grey-light-1;
 
+	@include respond(tab-port) {
+		padding: 8rem 0;
+	}
+
 	&__logo-box {
 		text-align: center;
-		margin-bottom: 8rem;
+		margin-bottom: 2rem;
+
+		@include respond(tab-port) {
+			margin-bottom: 6rem;
+			padding: 0 3rem;
+		}
 	}
 
 	&__logo {
-		width: 15rem;
-		height: auto;
+		height: 22rem;
 	}
 
 	&__row {
 		display: flex;
 		justify-content: space-between;
+		padding: 4rem;
 		margin: 0 3rem;
 		gap: 15rem;
+
+		@include respond(tab-port) {
+			flex-direction: column;
+			margin: 0;
+			padding: 2rem;
+			gap: 2rem;
+		}
+
 	}
 
 	&__navigation {
 		border-top: 1px solid $color-grey-dark;
 		padding-top: 2rem;
 		width: 130%;
+
+		@include respond(tab-port) {
+			width: 100%;
+			text-align: center;
+		}
 	}
 	
 	&__list {
 		list-style: none;
 		display: flex;
+
+		@include respond(phone) {
+			flex-direction: column;
+			align-items: flex-end;
+		}
 	}
 
 	&__item {	
+		display: inline-block;
+
 		&:not(:last-child) {
 			margin-right: 1.5rem;
+
+			@include respond(phone) {
+				margin-right: 0;
+				margin-bottom: 0.5rem;
+			}
 		}
 	}
 
@@ -59,6 +95,10 @@
 	&__copyright {
 		border-top: 1px solid $color-grey-dark;
 		padding-top: 2rem;
+
+		@include respond(tab-port) {
+			width: 100%;
+		}
 	}
 }
 

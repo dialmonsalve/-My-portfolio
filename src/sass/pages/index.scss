@@ -1,17 +1,27 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 .index {
 	align-items: center;
 	background: $color-grey-light-3;
 	display: flex;
 	flex-direction: column;
-	margin: 0 0 4rem;
 	margin: 5rem 0 18rem;
-	padding: 8rem 0;
+	padding: 7rem 0;
 	transform: skewY(-5deg);
+
+	@include respond(tab-port) {
+		transform: skewY(0);
+		margin: 0 0 8rem;
+		padding: 2rem 0;
+	}
 
 	&>* {
 		transform: skewY(5deg);
+		
+		@include respond(tab-port) {
+			transform: skewY(0);
+		}
 	}
 }
 
@@ -23,6 +33,7 @@
 	
 	&__photo {
 		border-radius: 100%;
+		width: 30%;
 	}
 
 	&__presentation {
@@ -50,7 +61,15 @@
 	font-size: 1.7rem;
 	gap: 3rem;
 	grid-template-columns: 1fr 1fr;
-	margin:  0 25rem ;
+	margin:  0 20rem ;
+
+	@include respond(tab-port){
+		margin:  0 6rem ;
+	}
+	@include respond(phone){
+		grid-template-columns: 1fr;
+		margin:  0 8rem ;
+	}
 }
 
 .skills {
@@ -59,13 +78,20 @@
 	rgba($color-primary-dark, 0.8));
 	border-radius: 2rem;
 	box-shadow: .5rem .5rem 1rem rgba(0,0,0,0.6);
-	padding: 2rem 2rem;
+	padding: 2rem;
 	transition: transform .3s ease-in-out;
+
+	@include respond(tab-port){
+		background-image: linear-gradient(to right bottom,
+		rgba($color-primary-light, 0.8),
+		rgba($color-primary-darker, 0.8));
+		transform: scale(1.03);
+	}
 
 	&:hover{
 		background-image: linear-gradient(to right bottom,
 		rgba($color-primary-light, 0.8),
-		rgba($color-primary-dark, 0.8));
+		rgba($color-primary-darker, 0.8));
 		transform: scale(1.03);
 	}
 
@@ -78,9 +104,10 @@
 	&__ul {
 		list-style: none;
 
-		&--item {
+		& > li {
 			margin: 0.8rem 0;
 		}
+
 	}
 }
 

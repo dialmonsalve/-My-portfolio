@@ -17,6 +17,11 @@ body {
 		animation-name: moveInLeft;
 		animation-duration: 1s;
 		animation-timing-function: ease-out;
+
+		@include respond(tab-port) {
+			letter-spacing: normal;
+		}
+		
 	}
 
 	&--sub {
@@ -25,6 +30,10 @@ body {
 		letter-spacing: 2.7rem;
 		animation: moveInRight 1s ease-out;
 		margin-bottom: 6rem;
+
+		@include respond(tab-port) {
+			letter-spacing: 1.3rem;
+		}
 	}
 }
 
@@ -39,6 +48,11 @@ body {
 	color: transparent;
 	letter-spacing: 1.2rem;
 	transition: all .2s;
+
+	@include respond(tab-port) {
+		letter-spacing: normal;
+		margin-top: 3rem;
+	}
 
 	&:hover {
 		transform: skewY(2deg) skewX(15deg) scale(1.1);

@@ -6,45 +6,47 @@ import "../sass/pages/api-comics.scss";
 
 <Layout title="Api comics" subtitle='Search comic'>
 
-	<section class="content-comic">
+	<main class="content-comic">
 		<astro-comic>
-			<div class="container-comic">
-				<h4 class="container-comic__title u-margin-bottom-small">
+
+			<section>
+				<h4 class="container-title__title u-margin-bottom-small">
 					Comic
-					<span class="container-comic__count">1</span>
+					<span class="container-title__count">1</span>
 				</h4>
+			</section>
 
-				<div class="container-data"></div>
+			<div class="container-data"></div>
 
-				<div class="container-buttons">
-					<div class="container-buttons__btn">
-						<button
-							disabled
-							class="container-buttons__btn--minus inactive--minus"
-							><i class="fa-solid fa-circle-minus"></i>
-						</button>
+			<div class="container-buttons">
+				<div class="container-buttons__btn">
+					<button
+						disabled
+						class="container-buttons__btn--minus inactive--minus"
+						><i class="fa-solid fa-circle-minus"></i>
+					</button>
 
-						<button class="container-buttons__btn--random">Random</button>
+					<button class="container-buttons__btn--random">Random</button>
 
-						<button class="container-buttons__btn--plus"
-							><i class="fa-solid fa-circle-plus"></i>
-						</button>
-					</div><!-- !container-buttons__btn -->
+					<button class="container-buttons__btn--plus"
+						><i class="fa-solid fa-circle-plus"></i>
+					</button>
+				</div><!-- !container-buttons__btn -->
 
-					<p class="container-buttons__link">
-						Comics from:
-						<i
-							><a
-								class="container-buttons__link--a"
-								target="_blank"
-								href="https://xkcd.com/">https://xkcd.com/</a
-							>
-						</i>
-					</p>
-				</div><!-- !container-buttons -->
-			</div><!-- !container-comic -->
+				<p class="container-buttons__link">
+					Comics from:
+					<i
+						><a
+							class="container-buttons__link--a"
+							target="_blank"
+							href="https://xkcd.com/">https://xkcd.com/</a
+						>
+					</i>
+				</p>
+			
+			</div><!-- !container-buttons -->
 		</astro-comic>
-	</section><!-- !content -->
+	</main><!-- !content -->
 </Layout>
 
 <script  type="module" src="src/ts/api-comics"></script>

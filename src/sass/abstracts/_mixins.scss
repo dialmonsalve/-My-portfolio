@@ -1,9 +1,7 @@
 @import './variables';
 
 //Btn active in comic page
-@mixin btn(
-	$left-top:0, $right-top:0, $right-bottom:0, $left-bottom:0, $color: $color-tertiary-dark
-	){
+@mixin btn($left-top: 0, $right-top: 0, $right-bottom: 0, $left-bottom: 0, $color: $color-tertiary-dark) {
 	border-radius: $left-top $right-top $right-bottom $left-bottom;
 	border: none;
 	box-shadow: .1rem .2rem .5rem rgb(58, 57, 110);
@@ -15,67 +13,94 @@
 
 
 	&:focus,
-	&:hover	 {
+	&:hover {
 		background-color: $color-tertiary-dark;
 		color: #fff;
 	}
 
 	&:active {
-
 		box-shadow: 0px 0px 0px rgb(58, 57, 110);
 		animation: anim-shadow .3s forwards;
 	}
 
 	@keyframes anim-shadow {
 		100% {
-			box-shadow: 0 0 50px 20px rgba(112, 111,211,1);
+			box-shadow: 0 0 50px 20px rgba(112, 111, 211, 1);
 		}
 	}
-
 }
 
-@mixin btn-inactive(
-	$left-top:0, $right-top:0, $right-bottom:0, $left-bottom:0
-	){
-	@include btn($left-top,  $right-top, $right-bottom , $left-bottom,$color-grey-dark-2);
+@mixin btn-inactive($left-top: 0, $right-top: 0, $right-bottom: 0, $left-bottom: 0) {
+	@include btn($left-top, $right-top, $right-bottom , $left-bottom, $color-grey-dark-2);
 
 	&:not(:focus),
-	&:not(:hover)	 {
+	&:not(:hover) {
 		background-color: $color-grey-dark-2;
 		color: #fff;
-    cursor: default;
+		cursor: default;
 	}
 
-  &:not(:active) {
+	&:not(:active) {
 		animation: anim-shadow .3s forwards;
 	}
 
-  @keyframes anim-shadow {
+	@keyframes anim-shadow {
 		100% {
 			box-shadow: 0 0 50px 20px transparent;
 		}
 	}
-
 }
 
 .inactive--plus {
-  @include btn(0, 30%, 30% , 0,$color-grey-dark-2);
-  margin-left: 2rem;
+	@include btn(0, 30%, 30%, 0, $color-grey-dark-2);
+	margin-left: 2rem;
 
-  &:not(:focus),
-	&:not(:hover)	 {
+	&:not(:focus),
+	&:not(:hover) {
 		background-color: $color-grey-dark-2;
 		color: #fff;
-    cursor: default;
+		cursor: default;
 	}
 
-  &:not(:active) {
+	&:not(:active) {
 		animation: anim-shadow .3s forwards;
 	}
 
-  @keyframes anim-shadow {
+	@keyframes anim-shadow {
 		100% {
 			box-shadow: 0 0 50px 20px #fff
 		}
+	}
+}
+
+//!MEDIA QUERY MANAGER
+/*
+*0	-	600px   		: 		Phone
+*600	-	900px   	:		Table portrait
+*900 -	1200px  		:		Table landscape
+*[1200 -	1800px] 	: 		is where our normal system apply
+*1800px + 				:	 	Big desktop
+
+*$breakpoint  
+*- phone
+*- tab-port
+*- tab-land
+*- big-desktop
+
+!em == 16px
+*/
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media(max-width: 37.5em){ @content }; 	//! 600px
+	}
+	@if $breakpoint == tab-port {
+		@media(max-width: 56.25em){ @content }; //! 900px
+	}
+	@if $breakpoint == tab-land {
+		@media(max-width: 75em){ @content }; 	//! 1200px
+	}
+	@if $breakpoint == big-desktop {
+		@media(min-width: 112.5em){ @content }; //! 1800px
 	}
 }

@@ -14,7 +14,7 @@ export class AstroApiComic extends HTMLElement{
 
 	constructor(){
 		super();
-		
+	
 		this.count = 1;
 
 		this.divContainer = document.querySelector('.container-data') as HTMLDivElement
@@ -84,14 +84,13 @@ export class AstroApiComic extends HTMLElement{
 		this.clearHTML()
 
 		const image = document.createElement('IMG')
-		image.classList.add('img')
+		image.className = 'container-data__img'
 		image.setAttribute('src', data.img)
 		image.setAttribute('alt', data.alt)
 		image.setAttribute('id', data.num)
-		image.setAttribute('class', 'container-data__img')
 
 		const paragraphTitle = document.createElement('P')
-		paragraphTitle.setAttribute('class', 'container-data__subtitle')
+		paragraphTitle.className = 'container-data__subtitle'
 		paragraphTitle.textContent= `Title: ${data.safe_title}`
 
 		this.divContainer.appendChild(paragraphTitle);

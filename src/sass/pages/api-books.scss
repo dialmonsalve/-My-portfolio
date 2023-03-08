@@ -1,29 +1,35 @@
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 
 .content-book {
-	align-items: stretch;
 	display: flex;
 	flex-direction: column;
 	margin: 0 0 4rem;
 	padding: 4rem 0;
 	transform: skewY(-5deg);
-
 	background-image: linear-gradient(to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8));
+			rgba($color-primary-light, 0.8),
+			rgba($color-primary-dark, 0.8));
 	margin: 5rem 0 18rem;
+
+	@include respond(tab-port) {
+		transform: skewY(0);
+	}
 
 	&>* {
 		transform: skewY(5deg);
+
+		@include respond(tab-port) {
+			transform: skewY(0);
+		}
 	}
 }
+
 // SEARCH
 .search {
-	flex: 1 1 40%;
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	margin:  5rem 0; 
+	margin: 5rem 0;
 
 	&__input {
 		background-color: rgb(58, 57, 110);
@@ -38,12 +44,18 @@
 		transition: all .2s;
 		width: 45%;
 
-		&:focus, &:active {
+		&:focus,
+		&:active {
 			background-color: $color-grey-light-3;
 			color: rgb(58, 57, 110);
 			font-weight: 900;
 			width: 50%;
 			outline: none;
+		}
+
+		&::selection {
+			background-color: rgb(58, 57, 110);
+			color: $color-grey-light-3;
 		}
 
 		&::-webkit-input-placeholder {
@@ -52,7 +64,7 @@
 		}
 	}
 
-	&__input:focus + &__button {
+	&__input:focus+&__button {
 		background-color: $color-grey-light-3;
 	}
 
@@ -63,7 +75,7 @@
 	}
 
 	&__icon {
-		fill:  $color-grey-dark-3;
+		fill: $color-grey-dark-3;
 		height: 2rem;
 		margin-bottom: 3rem;
 		margin-left: -3.25rem;
@@ -72,11 +84,11 @@
 }
 
 .grid-cards {
-	column-gap: 3rem;
+	gap: 3rem;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
 	padding: 0 2rem;
-	row-gap: 4rem;
+
 }
 
 .card {
@@ -89,6 +101,10 @@
 	height: 45rem;
 	justify-content: center;
 	transition: all .2s;
+
+	@include respond(tab-port) {
+		margin: 0 5rem;
+	}
 
 	&:hover {
 		background-color: $color-grey-light-4;
@@ -114,21 +130,20 @@
 		margin: 0 1rem;
 		padding: 0.5rem;
 	}
+
 	&__author {
 		border-top: 1px solid rgb(58, 57, 110);
 		color: $color-secondary-dark;
 		font-size: 1.5rem;
 		height: 20%;
 		margin: 1rem;
-		padding: 1rem ;
+		padding: 1rem;
 	}
 }
 
 .alert-danger {
 	position: absolute;
-	display: flex;
-	justify-content: center;
-	grid-column: 2 / 4;
+	text-align: center;
 	background-color: rgba(184, 35, 35, 0.893);
 	border-radius: 20px;
 	outline: none;
@@ -136,12 +151,12 @@
 	padding: 1rem 1.5rem;
 	text-transform: uppercase;
 	transition: all 1s ease-in-out;
-	width: 80%;
-	transform: translate(6rem, -3rem);;
+	left: 30%;
+	transform: translateY(-3rem);
+	width: 40%;
 }
 
 .anchor {
 	display: block;
 	text-decoration: none;
 }
-

@@ -1,0 +1,43 @@
+@import '../abstracts/variables.scss';
+@import '../abstracts/mixins.scss';
+
+.header {
+	display: flex;
+	flex-direction: column;
+	height: 95vh;
+	background-image:
+		linear-gradient(to right bottom,
+			rgba($color-primary-light, 0.8),
+			rgba($color-primary-dark, 0.8)),
+		url('src/assets/2248.jpg');
+	background-size: cover;
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	background-position: top;
+
+	@include respond(tab-port) {
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+	}
+
+	&__logo-box {
+		margin-top: 2rem;
+		margin-left: 2rem;
+	}
+
+	&__logo {
+		height: 9rem;
+	}
+
+	&__text-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 20rem auto;
+		transform: translate(0, -50%);
+	}
+}
+
+.subtitle {
+	text-align: center;
+}

@@ -9,11 +9,10 @@
 		padding: 1.5rem 4rem;
 		display: inline-block;
 		border-radius: 10rem;
-		transition: all 1s ease-in-out;
+		transition: all .1s ease-in-out;
 		position: relative;
 		font-size:$default-font-size;
 		border:none;
-		/* cursor: pointer; */
 	}
 
 	&:hover {

@@ -1,3 +1,6 @@
+@import '../abstracts/variables.scss';
+@import '../abstracts/mixins.scss';
+
 .navigation {
 		&__checkbox {
 		display: none;
@@ -8,13 +11,23 @@
 		height: 7rem;
 		width: 7rem;
 		position: fixed;
-		top: 6rem;
-		right: 6rem;
+		top: 8rem;
+		right: 8rem;
 		border-radius: 50%;
 		z-index: 4;
 		box-shadow: 0 1rem 3rem rgba($color-black, .1);
 		text-align: center;
 		cursor: pointer;
+
+		@include respond(tab-port){
+			top:2rem;
+			right: 4rem;
+		}
+
+		@include respond(phone){
+			top:2rem;
+			right: 3rem;
+		}
 	}
 
 	&__background {
@@ -22,11 +35,21 @@
 		width: 6rem;
 		border-radius: 50%;
 		position: fixed;
-		top: 6.5rem;
-		right: 6.5rem;
+		top: 8.5rem;
+		right: 8.5rem;
 		background-image: radial-gradient($color-primary-light, $color-primary-dark);
 		z-index: 2;
 		transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+		@include respond(tab-port) {
+			top:2.5rem;
+			right: 4.5rem;
+		}
+		
+		@include respond(phone) {
+			top:2.5rem;
+			right: 3.5rem;
+		}
 	}
 
 	&__nav {
@@ -48,12 +71,11 @@
 		transform: translate(-50%, -50%);
 		list-style: none;
 		text-align: center;
-		width: 100%;
+		width: 100%;		
 	}
 
 	&__item {
 		margin: 1rem;
-
 	}
 
 	&__link {
@@ -78,15 +100,14 @@
 		&:hover,
 		&:active {
 			background-position: 100%;
-			color: $color-primary-dark;
+			color: $color-primary-darker;
 			transform: translateX(1rem);
 		}
 	}
 	//FUNCTIONALITY
 
 	&__checkbox:checked ~ &__background {
-		transform: scale(80);
-		
+		transform: scale(80);		
 	}
 
 	&__checkbox:checked ~ &__nav {
