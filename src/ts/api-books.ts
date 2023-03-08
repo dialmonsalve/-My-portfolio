@@ -71,7 +71,9 @@ export class AstroBooks extends HTMLElement {
 		} catch (error) {
 
 			if (error instanceof Error) {
-				error.message
+
+				console.log(error.message);
+
 			}
 		}
 	}
@@ -80,9 +82,9 @@ export class AstroBooks extends HTMLElement {
 		this.clearHtml()
 
 		items.map(item => {
-			const { volumeInfo: { title, authors }, id } = item
+			const { volumeInfo: { title, authors } } = item
 
-			let image = 'src/assets/no-image.svg'
+			let image = 'assets/no-image.svg'
 
 			const defineImage = (image: string) => {
 
