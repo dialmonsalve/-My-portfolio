@@ -1,0 +1,23 @@
+---
+
+const year  = new Date().getFullYear();
+---
+<astro-hidemodal> 
+<div id="modal" class="container-modal">
+	<div class="modal" >
+
+		<div class="modal__contain">
+			<h3 class="modal__contain--title">To know more about my projects, visit my website at GitHub: {" "}<a class="modal__contain--link" href="https://github.com/dialmonsalve"> dialmonsalve</a></h3>
+			<p>All right reserved  &copy; copyright {year}</p>
+		</div>
+
+		<div class="modal__button">
+				<img id="close-modal" class="modal__button--img" src="assets/close.svg" alt="close">
+		</div>
+	</div>
+	
+</div>
+</astro-hidemodal>
+
+<script type="module" src="netlify/functions/modal.ts"></script>
+

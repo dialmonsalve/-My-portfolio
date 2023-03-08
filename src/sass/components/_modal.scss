@@ -1,0 +1,68 @@
+.container-modal {
+	background-color: hwb(0 20% 75% / 0.4);
+	height: 100%;
+	position: fixed;
+	top:0;
+	width: 100%;
+	left: 0;
+	z-index: 5;
+	transform: translateY(-100%);
+	transition: transform .5s cubic-bezier(.23,1.24,.57,1.33);
+}
+
+.modal {
+	align-items: center;
+	background-color: $color-primary-light;
+	border-radius: 5px;
+	bottom: auto;
+	box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.8);
+	color: black;
+	font-size: $default-font-size;
+	display: flex;
+	left: 50%;
+	margin-right: -50%;
+	min-height: 20rem;
+	padding: 2rem;
+	position: fixed;
+	right: auto;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%;
+
+	@include respond(tab-port){
+		width: 90%;
+	}
+
+	&__contain {
+		
+		&--title {
+			color: $color-white;
+			text-transform: uppercase;
+		}
+
+		&--link {
+			text-decoration: none;
+			color: $color-primary-darker;
+			text-transform: lowercase;
+		}
+		& > p {
+			color: $color-white;
+			position: absolute;
+			bottom: 8%;
+			right: 3%;
+		}
+		
+	}
+
+	&__button {
+		position: absolute;
+		top: 8%;
+		right: 3%;
+
+		&--img{
+			box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.8);
+			border-radius: 100%;
+			cursor: pointer;
+		}
+	}
+}

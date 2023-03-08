@@ -13,7 +13,8 @@
     "watch-css": "nodemon -e scss -x \"npm run compile:sass\""
   },
   "dependencies": {
-    "astro": "^1.8.0",
+    "@astrojs/netlify": "^2.2.0",
+    "astro": "^2.1.1",
     "superagent": "^8.0.6"
   },
   "devDependencies": {

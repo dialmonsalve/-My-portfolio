@@ -7,6 +7,7 @@ import '../sass/layout/container.scss';
 
 
 import '../sass/main.scss';
+import Modal from "../components/landing/Modal.astro";
 
 interface Props{
 	title:string,
@@ -39,15 +40,16 @@ const { title, subtitle } = Astro.props
 
 	</head>
 	<body>
+		<Modal />
 		<Navigation />
 		<div class="container">			
 			<Header title={ title }/>
-
-					<section class="subtitle">
-						<h2 class=" heading-secondary u-margin-bottom-small">{subtitle}</h2>
-					</section>
-
-					<slot/>
+			
+			<section class="subtitle">
+				<h2 class=" heading-secondary u-margin-bottom-small">{subtitle}</h2>
+			</section>
+			
+			<slot/>
 			<Footer/>
 		</div>
 	</body>

@@ -11,7 +11,6 @@ export class AstroBooks extends HTMLElement {
 		const form = this.querySelector("#form-search")
 
 		const cardId = this.querySelector('.card__img')
-		console.log(cardId)
 
 		this.consult = ""
 
@@ -134,22 +133,6 @@ export class AstroBooks extends HTMLElement {
 		cardId?.addEventListener('click', () => {
 			console.log("first")
 		})
-
-
-
-
-
-
-
 	}
-
-
-
-
-
-
-
-
-
 }
 customElements.define('astro-books', AstroBooks);
