@@ -18,6 +18,9 @@
 		box-shadow: 0 1rem 3rem rgba($color-black, .1);
 		text-align: center;
 		cursor: pointer;
+		&:checked {
+			border-radius: 100%;
+		}
 
 		@include respond(tab-port){
 			top:2rem;
