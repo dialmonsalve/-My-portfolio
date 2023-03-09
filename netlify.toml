@@ -1,0 +1,26 @@
+[build]
+  command = "npm run build && npm run build:styles"
+  publish = "dist"
+
+[[plugins]]
+  package = "@astrojs/netlify-plugin"
+
+[functions]
+  directory = "Netlify/functions"
+
+[[build.plugins]]
+  package = "@netlify/plugin-functions-build"
+  [build.plugins.inputs]
+    functions_directory = "Netlify/functions"
+
+[build.environment]
+  # Set environment variable for SASS compilation
+  SASS_PATH = "src/styles"
+
+[build.command]
+  # Custom command to compile SASS to CSS
+  command = "sass src/styles/main.scss dist/styles/main.css --style compressed"
+
+[build.command."production"]
+  # Custom command to compile SASS to CSS in production
+  command = "sass src/styles/main.scss dist/styles/main.css --style compressed"
