@@ -84,7 +84,7 @@ export class AstroBooks extends HTMLElement {
 		items.map(item => {
 			const { volumeInfo: { title, authors } } = item
 
-			let image = 'assets/no-image.svg'
+			let image = '/assets/no-image.svg'
 
 			const defineImage = (image) => {
 
