@@ -1,6 +1,4 @@
-interface ModalStyles {
-	transform: string;
-}
+
 
 export class AstroShowModal extends HTMLElement {
 
@@ -12,7 +10,7 @@ export class AstroShowModal extends HTMLElement {
 		discover?.addEventListener('click', (e) => {
 			e.preventDefault();
 
-			const showModal = document.querySelector('#modal') as HTMLElement & { style: ModalStyles };
+			const showModal = document.querySelector('#modal');
 
 			if (showModal) {
 				const translateYValue = '0%';
@@ -29,7 +27,7 @@ export class AstroHideModal extends HTMLElement {
 
 		const closeModal = this.querySelector("#close-modal");
 		closeModal?.addEventListener('click', () => {
-			const showModal = document.querySelector('#modal') as HTMLElement & { style: ModalStyles };
+			const showModal = document.querySelector('#modal');
 
 			if (showModal) {
 				const translateYValue = '-110%';
