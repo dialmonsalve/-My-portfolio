@@ -1,140 +1,123 @@
 export class AstroBooks extends HTMLElement {
-	resultado
-	consult
+  resultado;
+  consult;
 
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		const search = this.querySelector("#search")
-		const form = this.querySelector("#form-search")
+    const search = this.querySelector("#search");
+    const form = this.querySelector("#form-search");
 
-		const cardId = this.querySelector('.card__img')
+    this.consult = "";
 
-		this.consult = "pinoquio"
+    this.resultado = document.querySelector(".grid-cards");
 
-		this.resultado = document.querySelector(".grid-cards") 
+    if (search === null) return;
+    if (form === null) return;
 
-		if (search === null) return
-		if (form === null) return
+    search.addEventListener("change", ({ target }) => {
+      if (target === null) return;
+      this.consult = target.value;
+      localStorage.consult = this.consult;
+    });
 
-		search.addEventListener('change', ({ target }) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
 
-			if (target === null) return
-			this.consult = target.value
-			localStorage.consult = this.consult
-		});
+      this.searchData();
+    });
+  }
+  printAlert(message, type) {
+    this.clearHtml();
 
-		form.addEventListener('submit', (e) => {
-			e.preventDefault()
+    const divMessage = document.createElement("DIV");
 
-			this.searchData()
-		})
-		this.searchData()
+    if (type === "error") {
+      divMessage.className = "alert-danger";
+    }
+    divMessage.textContent = message;
 
-	}
-	printAlert(message, type) {
+    document
+      .querySelector(".grid-cards")
+      ?.insertBefore(divMessage, document.querySelector(".card"));
 
-		this.clearHtml()
+    setTimeout(() => {
+      divMessage.remove();
+    }, 2000);
+  }
+  async searchData() {
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${this.consult}`;
 
-		const divMessage = document.createElement('DIV');
+    if (this.consult === "") {
+      this.printAlert("field search is required", "error");
+      return;
+    }
 
-		if (type === 'error') {
-			divMessage.className = 'alert-danger'
-		}
-		divMessage.textContent = message
+    try {
+      const resp = await fetch(url);
+      const { items } = await resp.json();
 
-		document.querySelector('.grid-cards')?.insertBefore(divMessage, document.querySelector('.card'))
+      if (typeof items === "undefined") {
+        this.printAlert(
+          "OOps, something may be wrong, books don't found",
+          "error"
+        );
+        return;
+      }
 
-		setTimeout(() => {
-			divMessage.remove();
-		}, 2000)
-	}
-	async searchData() {
-		const url = `https://www.googleapis.com/books/v1/volumes?q=${this.consult}`;
+      this.showData(items);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message);
+      }
+    }
+  }
+  showData(items) {
+    this.clearHtml();
 
+    items.map((item) => {
+      const {
+        volumeInfo: { title, authors },
+      } = item;
 
-		if (this.consult === '') {
-			this.printAlert('field search is required', 'error');
-			return;
-		}
+      let image = "/assets/no-image.svg";
 
-		try {
-			const resp = await fetch(url);
-			const { items } = await resp.json()
+      const defineImage = (image) => {
+        if (item.volumeInfo.imageLinks !== undefined) {
+          return (image = item.volumeInfo.imageLinks.thumbnail);
+        }
+        return image;
+      };
 
-			if(typeof items === 'undefined'){
-				this.printAlert('Not found', 'error');
-				return;
-			}
+      const newTitle = () => {
+        return title.length > 80 ? title.substring(0, 80) + "..." : title;
+      };
 
-			this.showData(items)
-
-		} catch (error) {
-
-			if (error instanceof Error) {
-
-				console.log(error.message);
-
-			}
-		}
-	}
-	showData(items) {
-
-		this.clearHtml()
-
-		items.map(item => {
-			const { volumeInfo: { title, authors } } = item
-
-			let image = '/assets/no-image.svg'
-
-			const defineImage = (image) => {
-
-				if (item.volumeInfo.imageLinks !== undefined) {
-					return image = item.volumeInfo.imageLinks.thumbnail
-				}
-				return image
-			}
-
-			const newTitle = () => {
-
-				return title.length > 80
-					? title.substring(0, 80) + '...'
-					: title
-			};
-
-			this.resultado.innerHTML += `				
+      this.resultado.innerHTML += `				
 				<div class="card">
 							<img class='card__img' src='${defineImage(image)}'/>
 							<h4 class='card__title'>
-								Title: ${title === undefined
-					? "No title"
-					: newTitle()
-				}
+								Title: ${title === undefined ? "No title" : newTitle()}
 							</h4>
 
 							<p class='card__author'>
-								Author(s): ${authors === undefined
-					? "No author(s)"
-					: authors
-				}</p>
-				</div>				`
-		});
-	}
-	clearHtml() {
+								Author(s): ${authors === undefined ? "No author(s)" : authors}</p>
+				</div>				`;
+    });
+  }
+  clearHtml() {
+    if (this.resultado) {
+      while (this.resultado.firstChild) {
+        this.resultado.removeChild(this.resultado.firstChild);
+      }
+    }
+  }
+  async getById() {
+    const cardId = this.querySelector(".anchor");
 
-		if (this.resultado) {
-			while (this.resultado.firstChild) {
-				this.resultado.removeChild(this.resultado.firstChild)
-			}
-		}
-	}
-	async getById() {
-
-		const cardId = this.querySelector('.anchor')
-
-		cardId?.addEventListener('click', () => {
-			console.log("first")
-		})
-	}
+    cardId?.addEventListener("click", () => {
+      console.log("first");
+    });
+  }
 }
-customElements.define('astro-books', AstroBooks);
+customElements.define("astro-books", AstroBooks);

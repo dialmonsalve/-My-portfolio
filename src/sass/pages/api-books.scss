@@ -160,6 +160,10 @@
 	left: 30%;
 	transform: translateY(-3rem);
 	width: 40%;
+	@include respond(phone) {
+		width: 80%;
+		left: 10%;
+	}
 }
 
 .anchor {
