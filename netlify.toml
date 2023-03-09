@@ -2,13 +2,5 @@
   command = "npm run build"
   publish = "dist"
 
-[[plugins]]
-  package = "@astrojs/netlify-plugin"
-
 [functions]
   directory = "Netlify/functions"
-
-[[build.plugins]]
-  package = "@netlify/plugin-functions-build"
-  [build.plugins.inputs]
-    functions_directory = "Netlify/functions"
