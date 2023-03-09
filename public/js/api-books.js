@@ -10,7 +10,7 @@ export class AstroBooks extends HTMLElement {
 
 		const cardId = this.querySelector('.card__img')
 
-		this.consult = ""
+		this.consult = "pinoquio"
 
 		this.resultado = document.querySelector(".grid-cards") 
 
@@ -29,6 +29,7 @@ export class AstroBooks extends HTMLElement {
 
 			this.searchData()
 		})
+		this.searchData()
 
 	}
 	printAlert(message, type) {
