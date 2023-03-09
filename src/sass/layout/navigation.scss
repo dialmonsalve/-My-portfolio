@@ -18,7 +18,8 @@
 		box-shadow: 0 1rem 3rem rgba($color-black, .1);
 		text-align: center;
 		cursor: pointer;
-		&:checked {
+
+		&:hover {
 			border-radius: 100%;
 		}
 
@@ -34,10 +35,9 @@
 	}
 
 	&__background {
-		border-radius: 100%;
 		height: 6rem;
 		width: 6rem;
-		border-radius: 50%;
+		border-radius: 100%;
 		position: fixed;
 		top: 8.5rem;
 		right: 8.5rem;
