@@ -22,8 +22,6 @@ export class AstroShowModal extends HTMLElement {
 	}
 }
 
-
-
 export class AstroHideModal extends HTMLElement {
 
 	constructor() {

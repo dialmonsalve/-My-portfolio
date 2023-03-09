@@ -1,4 +1,4 @@
-import { validPlus, validMinus }from './helpers/countValidation'
+import { validMinus, validPlus } from "./helpers/countValidation";
 
 	interface Data{
 		img:string,
