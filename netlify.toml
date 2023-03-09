@@ -17,6 +17,10 @@
   # Set environment variable for SASS compilation
   SASS_PATH = "src/styles"
 
-[build.command."production"]
+[[build.commands]]
+  # Custom command to compile SASS to CSS
+  command = "sass src/styles/main.scss dist/styles/main.css --style compressed"
+
+[[build.commands.production]]
   # Custom command to compile SASS to CSS in production
   command = "sass src/styles/main.scss dist/styles/main.css --style compressed"
