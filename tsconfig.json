@@ -6,8 +6,6 @@
     "noImplicitAny":true,
     "sourceMap": true,
     "removeComments": true,
-    "outDir": "dist",
-    "esModuleInterop": true
   },
   "extends": "astro/tsconfigs/base"
 }
