@@ -1,9 +1,6 @@
-import { IBooks, Item } from "./interfaces/IBooks";
-
-
 export class AstroBooks extends HTMLElement {
-	resultado: Element
-	consult: string
+	resultado
+	consult
 
 	constructor() {
 		super();
@@ -15,26 +12,26 @@ export class AstroBooks extends HTMLElement {
 
 		this.consult = ""
 
-		this.resultado = document.querySelector(".grid-cards") as Element
+		this.resultado = document.querySelector(".grid-cards") 
 
 		if (search === null) return
 		if (form === null) return
 
-		search.addEventListener('change', ({ target }: any) => {
+		search.addEventListener('change', ({ target }) => {
 
 			if (target === null) return
 			this.consult = target.value
 			localStorage.consult = this.consult
 		});
 
-		form.addEventListener('submit', (e: Event) => {
+		form.addEventListener('submit', (e) => {
 			e.preventDefault()
 
 			this.searchData()
 		})
 
 	}
-	printAlert(message: string, type: string) {
+	printAlert(message, type) {
 
 		this.clearHtml()
 
@@ -46,8 +43,6 @@ export class AstroBooks extends HTMLElement {
 		divMessage.textContent = message
 
 		document.querySelector('.grid-cards')?.insertBefore(divMessage, document.querySelector('.card'))
-
-		console.log(document.querySelector('.card'))
 
 		setTimeout(() => {
 			divMessage.remove();
@@ -64,7 +59,12 @@ export class AstroBooks extends HTMLElement {
 
 		try {
 			const resp = await fetch(url);
-			const { items }: IBooks = await resp.json()
+			const { items } = await resp.json()
+
+			if(typeof items === 'undefined'){
+				this.printAlert('Not found', 'error');
+				return;
+			}
 
 			this.showData(items)
 
@@ -77,7 +77,7 @@ export class AstroBooks extends HTMLElement {
 			}
 		}
 	}
-	showData(items: Item[]) {
+	showData(items) {
 
 		this.clearHtml()
 
@@ -86,7 +86,7 @@ export class AstroBooks extends HTMLElement {
 
 			let image = 'assets/no-image.svg'
 
-			const defineImage = (image: string) => {
+			const defineImage = (image) => {
 
 				if (item.volumeInfo.imageLinks !== undefined) {
 					return image = item.volumeInfo.imageLinks.thumbnail

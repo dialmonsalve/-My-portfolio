@@ -1,11 +1,5 @@
-interface ValidPlus {
-	count:number,
-	btnPlus:Element
-	btnLess:Element
-	countSpan:HTMLSpanElement
-}
 
-export const validPlus = (args:ValidPlus) =>{
+export const validPlus = (args) =>{
 	if(args.count > 2733) {
 		args.btnPlus.classList.add('inactive--plus')
 		args.btnPlus.setAttribute('disabled', '')
@@ -21,7 +15,7 @@ export const validPlus = (args:ValidPlus) =>{
 	args.countSpan.textContent = args.count.toString()
 }
 
-export const validMinus = (args:ValidPlus) =>{
+export const validMinus = (args) =>{
 	if(args.count <= 2733 ){
 		args.btnPlus.classList.add('container-buttons__btn--plus')
 		args.btnPlus.removeAttribute('disabled')

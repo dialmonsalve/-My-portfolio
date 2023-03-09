@@ -6,6 +6,7 @@
     "noImplicitAny":true,
     "sourceMap": true,
     "removeComments": true,
+    "importsNotUsedAsValues": "error",
   },
   "extends": "astro/tsconfigs/base"
 }
