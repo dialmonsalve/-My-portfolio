@@ -5,14 +5,14 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
-
-  <div class="contain-astro">
-    <p>Project built in Astro</p>
-    <img class="contain-astro__logo" src="/assets/Astro.png" alt="Logo-astro">
-  </div>
+ 
   <div class="footer__logo-box">
     <picture>
-      <img class="footer__logo" srcset="/assets/logo-white.svg" alt="Full logo" />
+      <img
+        class="footer__logo"
+        srcset="/assets/logo-white.svg"
+        alt="Full logo"
+      />
     </picture>
   </div>
   <div class="footer__row">
@@ -35,6 +35,11 @@ const year = new Date().getFullYear();
             <a href="#" class="footer__link">Terms</a>
           </li>
         </u>
+
+        <div class="contain-astro">
+          <img class="contain-astro__logo" src="/assets/Astro.png" alt="Logo-astro" />
+          <p>Made with Astro + JS + SASS</p>
+        </div>
       </nav>
     </div>
     <div class="footer__row__col-2">

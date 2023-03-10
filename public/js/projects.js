@@ -59,7 +59,7 @@ export const projects = [
     name: "quiosco",
     url: "06.png",
     technologies: "React with Next - Prisma - tailwind - typescript",
-    createTo: "Udemy teacher juan de la torre",
+    createTo: "Udemy teacher Juan de la torre",
     media: "06.mp4",
     course: "React - La Guía Completa: Hooks Context Redux MERN",
     description:
@@ -81,7 +81,7 @@ export const projects = [
     name: "shopping cart",
     url: "08.png",
     technologies: "vanilla javascript - CSS3 - HTML5",
-    createTo: "udemy teacher juan de la torre",
+    createTo: "Udemy teacher Juan de la torre",
     media: "08.mp4",
     course: "JavaScript Moderno Guía Definitiva Construye +20 Proyectos",
     description:

@@ -1,40 +1,36 @@
-
-
 export class AstroShowModal extends HTMLElement {
+  constructor() {
+    super();
 
-	constructor() {
-		super();
+    const discover = this.querySelector("#discover");
 
-		const discover = this.querySelector("#discover");
+    discover?.addEventListener("click", (e) => {
+      e.preventDefault();
 
-		discover?.addEventListener('click', (e) => {
-			e.preventDefault();
+      const showModal = document.querySelector("#modal");
 
-			const showModal = document.querySelector('#modal');
-
-			if (showModal) {
-				const translateYValue = '0%';
-				showModal.style.transform = `translateY(${translateYValue})`;
-			}
-		});
-	}
+      if (showModal) {
+        const translateYValue = "0%";
+        showModal.style.transform = `translateY(${translateYValue})`;
+      }
+    });
+  }
 }
 
 export class AstroHideModal extends HTMLElement {
+  constructor() {
+    super();
 
-	constructor() {
-		super();
+    const closeModal = this.querySelector("#close-modal");
+    closeModal?.addEventListener("click", () => {
+      const showModal = document.querySelector("#modal");
 
-		const closeModal = this.querySelector("#close-modal");
-		closeModal?.addEventListener('click', () => {
-			const showModal = document.querySelector('#modal');
-
-			if (showModal) {
-				const translateYValue = '-110%';
-				showModal.style.transform = `translateY(${translateYValue})`;
-			}
-		})
-	}
+      if (showModal) {
+        const translateYValue = "-110%";
+        showModal.style.transform = `translateY(${translateYValue})`;
+      }
+    });
+  }
 }
-customElements.define('astro-showmodal', AstroShowModal);
-customElements.define('astro-hidemodal', AstroHideModal);
+customElements.define("astro-showmodal", AstroShowModal);
+customElements.define("astro-hidemodal", AstroHideModal);

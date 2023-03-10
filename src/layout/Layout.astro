@@ -1,56 +1,74 @@
 ---
-
 import Header from "../components/landing/Header.astro";
 import Navigation from "../components/landing/Navigation.astro";
 import Footer from "../components/landing/Footer.astro";
-import '../sass/layout/container.scss';
+import "../sass/layout/container.scss";
 
-
-import '../sass/main.scss';
+import "../sass/main.scss";
 import Modal from "../components/Modal.astro";
 
-interface Props{
-	title:string,
-	subtitle:string
+interface Props {
+  title: string;
+  subtitle: string;
 }
 
-const { title, subtitle } = Astro.props
-
+const { title, subtitle } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-		<link rel="manifest" href="/assets/site.webmanifest">
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+    />
 
-		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
 
-		<title >Mi Project | { title }</title>
+    <title>Mi Project | {title}</title>
+  </head>
+  <body>
+    <Modal />
+    <Navigation />
+    <div class="container">
+      <Header title={title} />
 
-	</head>
-	<body>
-		<Modal />
-		<Navigation />
-		<div class="container">			
-			<Header title={ title }/>
-			
-			<section class="subtitle">
-				<h2 class=" heading-secondary u-margin-bottom-small">{subtitle}</h2>
-			</section>
-			
-			<slot/>
-			<Footer/>
-		</div>
-	</body>
+      <section class="subtitle">
+        <h2 class="heading-secondary u-margin-bottom-small">{subtitle}</h2>
+      </section>
+
+      <slot />
+      <Footer />
+    </div>
+  </body>
 </html>

@@ -12,14 +12,15 @@
   padding: 4rem 0;
   transform: skewY(-5deg);
 
-  @include respond(tab-port){
+  @include respond(tab-port) {
     transform: skewY(0);
     padding: 0;
   }
 
   &>* {
     transform: skewY(5deg);
-    @include respond(tab-port){
+
+    @include respond(tab-port) {
       transform: skewY(0);
     }
   }
@@ -43,7 +44,8 @@
 .container-data {
   height: 40rem;
   overflow: hidden;
-  @include respond(phone){
+
+  @include respond(phone) {
     height: 25rem;
   }
 
@@ -52,13 +54,14 @@
     color: $color-secondary-light;
     text-transform: uppercase;
   }
+
   &__img {
-    @include respond(phone){
+    @include respond(phone) {
       // height: 100%;
-      max-width:95%;
-      margin:0 1.5rem;
+      max-width: 95%;
+      margin: 0 1.5rem;
     }
-    
+
   }
 
 }

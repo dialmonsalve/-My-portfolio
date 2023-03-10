@@ -4,49 +4,44 @@ import Layout from "../layout/Layout.astro";
 import "../sass/pages/api-comics.scss";
 ---
 
-<Layout title="Api comics" subtitle='Search comic'>
+<Layout title="Api comics" subtitle="Search comic">
+  <main class="content-comic">
+    <astro-comic>
+      <section>
+        <h4 class="container-title__title u-margin-bottom-small">
+          Comic
+          <span class="container-title__count">1</span>
+        </h4>
+      </section>
 
-	<main class="content-comic">
-		<astro-comic>
+      <div class="container-data"></div>
 
-			<section>
-				<h4 class="container-title__title u-margin-bottom-small">
-					Comic
-					<span class="container-title__count">1</span>
-				</h4>
-			</section>
+      <div class="container-buttons">
+        <div class="container-buttons__btn">
+          <button disabled class="container-buttons__btn--minus inactive--minus"
+            ><i class="fa-solid fa-circle-minus"></i>
+          </button>
 
-			<div class="container-data"></div>
+          <button class="container-buttons__btn--random">Random</button>
 
-			<div class="container-buttons">
-				<div class="container-buttons__btn">
-					<button
-						disabled
-						class="container-buttons__btn--minus inactive--minus"
-						><i class="fa-solid fa-circle-minus"></i>
-					</button>
+          <button class="container-buttons__btn--plus"
+            ><i class="fa-solid fa-circle-plus"></i>
+          </button>
+        </div><!-- !container-buttons__btn -->
 
-					<button class="container-buttons__btn--random">Random</button>
-
-					<button class="container-buttons__btn--plus"
-						><i class="fa-solid fa-circle-plus"></i>
-					</button>
-				</div><!-- !container-buttons__btn -->
-
-				<p class="container-buttons__link">
-					Comics from:
-					<i
-						><a
-							class="container-buttons__link--a"
-							target="_blank"
-							href="https://xkcd.com/">https://xkcd.com/</a
-						>
-					</i>
-				</p>
-			
-			</div><!-- !container-buttons -->
-		</astro-comic>
-	</main><!-- !content -->
+        <p class="container-buttons__link">
+          Comics from:
+          <i
+            ><a
+              class="container-buttons__link--a"
+              target="_blank"
+              href="https://xkcd.com/">https://xkcd.com/</a
+            >
+          </i>
+        </p>
+      </div><!-- !container-buttons -->
+    </astro-comic>
+  </main><!-- !content -->
 </Layout>
 
-<script  type="module" src="/js/api-comics.js"></script>
+<script type="module" src="/js/api-comics.js"></script>

@@ -2,7 +2,7 @@
 @import '../abstracts/mixins.scss';
 
 .navigation {
-		&__checkbox {
+	&__checkbox {
 		display: none;
 	}
 
@@ -23,13 +23,13 @@
 			border-radius: 100%;
 		}
 
-		@include respond(tab-port){
-			top:2rem;
+		@include respond(tab-port) {
+			top: 2rem;
 			right: 4rem;
 		}
 
-		@include respond(phone){
-			top:2rem;
+		@include respond(phone) {
+			top: 2rem;
 			right: 3rem;
 		}
 	}
@@ -46,12 +46,12 @@
 		transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
 		@include respond(tab-port) {
-			top:2.5rem;
+			top: 2.5rem;
 			right: 4.5rem;
 		}
-		
+
 		@include respond(phone) {
-			top:2.5rem;
+			top: 2.5rem;
 			right: 3.5rem;
 		}
 	}
@@ -59,7 +59,7 @@
 	&__nav {
 		height: 100vh;
 		position: fixed;
-		top:0;
+		top: 0;
 		left: 0;
 		z-index: 3;
 		opacity: 0;
@@ -75,7 +75,7 @@
 		transform: translate(-50%, -50%);
 		list-style: none;
 		text-align: center;
-		width: 100%;		
+		width: 100%;
 	}
 
 	&__item {
@@ -83,8 +83,9 @@
 	}
 
 	&__link {
+
 		&:link,
-		&:visited{
+		&:visited {
 			display: inline-block;
 			font-size: 3rem;
 			font-weight: 300;
@@ -101,6 +102,7 @@
 				display: inline-block;
 			}
 		}
+
 		&:hover,
 		&:active {
 			background-position: 100%;
@@ -108,13 +110,13 @@
 			transform: translateX(1rem);
 		}
 	}
-	//FUNCTIONALITY
 
-	&__checkbox:checked ~ &__background {
-		transform: scale(80);		
+	//FUNCTIONALITY
+	&__checkbox:checked~&__background {
+		transform: scale(80);
 	}
 
-	&__checkbox:checked ~ &__nav {
+	&__checkbox:checked~&__nav {
 		opacity: 1;
 		visibility: visible;
 		width: 100%;
@@ -141,8 +143,14 @@
 			left: 0;
 			transition: all .2s;
 		}
-		&::before {top: -.8rem;}
-		&::after {top: .8rem;}
+
+		&::before {
+			top: -.8rem;
+		}
+
+		&::after {
+			top: .8rem;
+		}
 
 	}
 
@@ -153,17 +161,17 @@
 	&__button:hover &__icon:after {
 		top: 1rem;
 	}
-	
-	&__checkbox:checked + &__button &__icon{
+
+	&__checkbox:checked+&__button &__icon {
 		background-color: transparent;
 	}
-	
-	&__checkbox:checked + &__button &__icon::before{
+
+	&__checkbox:checked+&__button &__icon::before {
 		top: 0;
 		transform: rotate(135deg);
 	}
-	
-	&__checkbox:checked + &__button &__icon::after{
+
+	&__checkbox:checked+&__button &__icon::after {
 		top: 0;
 		transform: rotate(-135deg);
 	}

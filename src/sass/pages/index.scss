@@ -18,7 +18,7 @@
 
 	&>* {
 		transform: skewY(5deg);
-		
+
 		@include respond(tab-port) {
 			transform: skewY(0);
 		}
@@ -30,7 +30,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 4rem;
-	
+
 	&__photo {
 		border-radius: 100%;
 		width: 30%;
@@ -48,54 +48,56 @@
 
 			&:hover,
 			&:active {
-			box-shadow: 0 1rem, 2rem rgba($color-black, .4);
-			color: $color-primary-light;
-			cursor: pointer;
-			transform: rotate(5deg) scale(1.1);
-		}
+				box-shadow: 0 1rem, 2rem rgba($color-black, .4);
+				color: $color-primary-light;
+				cursor: pointer;
+				transform: rotate(5deg) scale(1.1);
+			}
 		}
 	}
 }
+
 .resume {
 	display: grid;
 	font-size: 1.7rem;
 	gap: 3rem;
 	grid-template-columns: 1fr 1fr;
-	margin:  0 20rem ;
+	margin: 0 20rem;
 
-	@include respond(tab-port){
-		margin:  0 6rem ;
+	@include respond(tab-port) {
+		margin: 0 6rem;
 	}
-	@include respond(phone){
+
+	@include respond(phone) {
 		grid-template-columns: 1fr;
-		margin:  0 8rem ;
+		margin: 0 8rem;
 	}
 }
 
 .skills {
 	background-image: linear-gradient(to right bottom,
-	rgba($color-primary-light, 0.8),
-	rgba($color-primary-dark, 0.8));
+			rgba($color-primary-light, 0.8),
+			rgba($color-primary-dark, 0.8));
 	border-radius: 2rem;
-	box-shadow: .5rem .5rem 1rem rgba(0,0,0,0.6);
+	box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, 0.6);
 	padding: 2rem;
 	transition: transform .3s ease-in-out;
 
-	@include respond(tab-port){
+	@include respond(tab-port) {
 		background-image: linear-gradient(to right bottom,
-		rgba($color-primary-light, 0.8),
-		rgba($color-primary-darker, 0.8));
+				rgba($color-primary-light, 0.8),
+				rgba($color-primary-darker, 0.8));
 	}
 
-	&:hover{
+	&:hover {
 		background-image: linear-gradient(to right bottom,
-		rgba($color-primary-light, 0.8),
-		rgba($color-primary-darker, 0.8));
+				rgba($color-primary-light, 0.8),
+				rgba($color-primary-darker, 0.8));
 		transform: scale(1.03);
 	}
 
 	&__subtitle {
-		border-bottom: 1px solid $color-tertiary-dark; 
+		border-bottom: 1px solid $color-tertiary-dark;
 		color: $color-tertiary-dark;
 		font-size: 2.5rem;
 	}
@@ -103,7 +105,7 @@
 	&__ul {
 		list-style: none;
 
-		& > li {
+		&>li {
 			margin: 0.8rem 0;
 		}
 
@@ -113,17 +115,17 @@
 .hobbies {
 
 	background-image: linear-gradient(0.25turn,
-	rgba($color-green-light, 0.8),
-	rgba($color-green-dark, 0.8));
+			rgba($color-green-light, 0.8),
+			rgba($color-green-dark, 0.8));
 	border-radius: 2rem;
-	box-shadow: .5rem .5rem 1rem rgba(0,0,0,0.6);
+	box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, 0.6);
 	padding: 2rem 2rem;
 	transition: all .3s ease-in-out;
 
 	&:hover {
 		background-image: linear-gradient(0.25turn,
-		rgba($color-green-light, 0.8),
-		rgba($color-green-darker, 0.8));
+				rgba($color-green-light, 0.8),
+				rgba($color-green-darker, 0.8));
 		transform: scale(1.03);
 	}
 
@@ -131,10 +133,5 @@
 		border-bottom: 1px solid $color-green-darker;
 		color: $color-green-darker;
 		font-size: 2.5rem;
-
-	}
-
-	&__paragraph {
-
 	}
 }
