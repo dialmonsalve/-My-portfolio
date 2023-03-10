@@ -30,9 +30,10 @@ export class AstroProject extends HTMLElement {
 
           <div class="modal-text">
             <h2  class="modal-text__name">${project.name}</h2>
-            <p class="modal-text__technology" >Technologies: ${project.technologies}</p>
-            <p class="modal-text__made" >Made to: ${project.createTo}</p>
-            <p class="modal-text__desc" >${project.description}</p>
+            <p class="modal-text__technology" ><span>Techniques used: </span>${project.technologies}</p>
+            <p class="modal-text__course" ><span>Course: </span>${project.course}</p>
+            <p class="modal-text__made" ><span>Made to: </span>${project.createTo}</p>
+            <p class="modal-text__desc" ><span>Description: </span>${project.description}</p>
           </div>
 
         </div>
