@@ -1,4 +1,4 @@
-import { validPlus } from "./helpers/countValidation.js";
+import { validPlus, validMinus } from "./helpers/countValidation.js";
 
 export class AstroApiComic extends HTMLElement {
   count;
