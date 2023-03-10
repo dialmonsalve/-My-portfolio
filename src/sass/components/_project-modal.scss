@@ -28,37 +28,6 @@
 		height: 600px;
 		border-radius: 1.5rem;
 	}
-
-	&__play-btn {
-		width: 80px;
-		height: 80px;
-		background-color: red;
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid transparent;
-		border-left: 15px solid #fff;
-		margin-left: -5px;
-	}
-
-	&__pause-btn {
-		background-color: blue;
-
-	}
-
-	&__time-bar {
-		height: 8px;
-		width: 100%;
-		position: relative;
-		background-color: #eee;
-	}
-
-	&__progress {
-		height: 100%;
-		width: 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: #f00;
-	}
 }
 
 .modal-text {

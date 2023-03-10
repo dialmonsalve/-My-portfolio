@@ -16,11 +16,16 @@ export class AstroProject extends HTMLElement {
         <div class="modal-content">
 
         <div class="modal-video">
-        <video class="modal-video__video" src="/media/${project.media}" alt="${project.name}" sandbox="allow-scripts allow-same-origin" autoplay></video>
-        <button class="modal-video__play-btn"></button>
-        <div class="modal-video__time-bar">
-          <progress class="modal-video__progress" value="0" max="100"></progress>
-        </div>
+          <video 
+            class="modal-video__video" 
+            alt="${project.name}" 
+            sandbox="allow-scripts allow-same-origin" controls autoplay
+            controlsList="nodownload"
+            oncontextmenu="return false"
+          >
+            <source src="/media/${project.media}"  type="video/mp4">
+            Tu navegador no soporta la etiqueta video
+          </video>
       </div>
 
           <div class="modal-text">
@@ -41,23 +46,23 @@ export class AstroProject extends HTMLElement {
         body.removeChild(projectModal);
       });
 
-      const video = projectModal.querySelector(".modal-video__video");
-      const playBtn = projectModal.querySelector(".modal-video__play-btn");
-      playBtn.addEventListener("click", () => {
-        if (video.paused) {
-          video.play();
-          playBtn.classList.add("modal-video__pause-btn");
-        } else {
-          video.pause();
-          playBtn.classList.remove("modal-video__pause-btn");
-        }
-      });
+      // const video = projectModal.querySelector(".modal-video__video");
+      // const playBtn = projectModal.querySelector(".modal-video__play-btn");
+      // playBtn.addEventListener("click", () => {
+      //   if (video.paused) {
+      //     video.play();
+      //     playBtn.classList.add("modal-video__pause-btn");
+      //   } else {
+      //     video.pause();
+      //     playBtn.classList.remove("modal-video__pause-btn");
+      //   }
+      // });
 
-      video.addEventListener("timeupdate", () => {
-        const progress = projectModal.querySelector(".modal-video__progress");
-        const progressPercent = (video.currentTime / video.duration) * 100;
-        progress.value = progressPercent;
-      });
+      // video.addEventListener("timeupdate", () => {
+      //   const progress = projectModal.querySelector(".modal-video__progress");
+      //   const progressPercent = (video.currentTime / video.duration) * 100;
+      //   progress.value = progressPercent;
+      // });
 
       window.addEventListener("click", (event) => {
         if (event.target === projectModal) {
