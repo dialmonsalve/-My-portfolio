@@ -130,7 +130,7 @@
 	}
 
 	&__title {
-		color: rgb(58, 57, 110);
+		color: $color-primary-darker;
 		font-size: 1.7rem;
 		height: 20%;
 		margin: 0 1rem;
@@ -138,7 +138,7 @@
 	}
 
 	&__author {
-		border-top: 1px solid rgb(58, 57, 110);
+		border-top: 1px solid $color-primary-darker;
 		color: $color-secondary-dark;
 		font-size: 1.5rem;
 		height: 20%;

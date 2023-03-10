@@ -114,3 +114,25 @@
 	}
 }
 
+.contain-astro {
+	margin: 0 2rem;
+	padding: 1rem ;
+	
+
+	&__logo {
+		display: block;
+		width: 5%;
+		border-radius: 5px;
+	}
+	& > p {
+		font-size:1.5rem;
+		text-transform: uppercase;
+		background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		letter-spacing: 0.4rem;
+	}
+}
+
+

@@ -1,0 +1,67 @@
+.modal-project {
+	background-color: rgb($color-primary-dark, 0.6);
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 5;
+}
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	background-color: $color-white;
+	box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.8);
+	padding: 1rem;
+	border-radius: 1.5rem;
+}
+
+.modal-video {
+	&__video {
+		width: 1200px;
+		height: 600px;
+		border-radius: 1.5rem;
+	}
+
+	&__play-btn {
+		width: 80px;
+		height: 80px;
+		background-color: red;
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-left: 15px solid #fff;
+		margin-left: -5px;
+	}
+
+	&__pause-btn {
+		background-color: blue;
+
+	}
+
+	&__time-bar {
+		height: 8px;
+		width: 100%;
+		position: relative;
+		background-color: #eee;
+	}
+
+	&__progress {
+		height: 100%;
+		width: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: #f00;
+	}
+}
+
+.modal-text {
+
+
+}
