@@ -1,21 +1,21 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
 
 .container-projects {
 	background-image: linear-gradient(to right bottom,
-			rgba($color-primary-light, 0.8),
-			rgba($color-primary-dark, 0.8));
+			rgba(v.$color-primary-light, 0.8),
+			rgba(v.$color-primary-dark, 0.8));
 	margin: 5rem 0 18rem;
 	transform: skewY(-5deg);
 
-	@include respond(tab-port) {
+	@include m.respond(tab-port) {
 		transform: skewY(0);
 	}
 
 	&>* {
 		transform: skewY(5deg);
 
-		@include respond(tab-port) {
+		@include m.respond(tab-port) {
 			transform: skewY(0);
 		}
 	}
@@ -27,24 +27,24 @@
 	grid-template-columns: repeat(3, 1fr);
 	padding: 8rem;
 
-	@include respond(tab-port) {
+	@include m.respond(tab-port) {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	@include respond(phone) {
+	@include m.respond(phone) {
 		grid-template-columns: repeat(1, 1fr);
 	}
 
 	&__card {
 		background-image: linear-gradient(to right,
-				rgba($color-grey-light-1, 0.8),
-				rgba($color-grey-dark-1, 0.8));
+				rgba(v.$color-grey-light-1, 0.8),
+				rgba(v.$color-grey-dark-1, 0.8));
 		border-radius: 1rem;
 		box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 		padding: 2rem;
 		position: relative;
 
-		@include respond(phone) {
+		@include m.respond(phone) {
 			margin: 0 auto;
 			width: 80%;
 		}
@@ -56,8 +56,8 @@
 		}
 
 		&--title {
-			color: $color-white;
-			font-size: $default-font-size;
+			color: v.$color-white;
+			font-size: v.$default-font-size;
 			margin: 0 1rem;
 			padding: 0.5rem;
 			text-transform: uppercase;
@@ -79,14 +79,14 @@
 			border-radius: 5px;
 			margin-bottom: 2rem;
 
-			@include respond(phone) {
+			@include m.respond(phone) {
 				width: 20rem;
 			}
 		}
 
 		&--technology,
 		&--createTo {
-			color: $color-white;
+			color: v.$color-white;
 			font-size: 1.2rem;
 			text-transform: uppercase;
 			font-weight: 900;

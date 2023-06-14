@@ -1,4 +1,4 @@
-@import '../abstracts/variables';
+@use '../abstracts/variables'as v;
 
 @keyframes moveInLeft {
 	0% {
@@ -63,7 +63,7 @@
 			margin: 8px;
 			box-sizing: border-box;
 			border: 32px solid #dfc;
-			border-color: $color-tertiary-light transparent $color-secondary-light transparent;
+			border-color: v.$color-tertiary-light transparent v.$color-secondary-light transparent;
 			animation: lds-hourglass 1.2s infinite;
 		}
 

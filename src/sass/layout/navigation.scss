@@ -1,5 +1,5 @@
-@import '../abstracts/variables.scss';
-@import '../abstracts/mixins.scss';
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
 
 .navigation {
 	&__checkbox {
@@ -7,7 +7,7 @@
 	}
 
 	&__button {
-		background-color: $color-white;
+		background-color: v.$color-white;
 		height: 7rem;
 		width: 7rem;
 		position: fixed;
@@ -15,7 +15,7 @@
 		right: 8rem;
 		border-radius: 100%;
 		z-index: 4;
-		box-shadow: 0 1rem 3rem rgba($color-black, .1);
+		box-shadow: 0 1rem 3rem rgba(v.$color-black, .1);
 		text-align: center;
 		cursor: pointer;
 
@@ -23,12 +23,12 @@
 			border-radius: 100%;
 		}
 
-		@include respond(tab-port) {
+		@include m.respond(tab-port) {
 			top: 2rem;
 			right: 4rem;
 		}
 
-		@include respond(phone) {
+		@include m.respond(phone) {
 			top: 2rem;
 			right: 3rem;
 		}
@@ -41,16 +41,16 @@
 		position: fixed;
 		top: 8.5rem;
 		right: 8.5rem;
-		background-image: radial-gradient($color-primary-light, $color-primary-dark);
+		background-image: radial-gradient(v.$color-primary-light, v.$color-primary-dark);
 		z-index: 2;
 		transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
-		@include respond(tab-port) {
+		@include m.respond(tab-port) {
 			top: 2.5rem;
 			right: 4.5rem;
 		}
 
-		@include respond(phone) {
+		@include m.respond(phone) {
 			top: 2.5rem;
 			right: 3.5rem;
 		}
@@ -90,10 +90,10 @@
 			font-size: 3rem;
 			font-weight: 300;
 			padding: 1rem 2rem;
-			color: $color-white;
+			color: v.$color-white;
 			text-decoration: none;
 			text-transform: uppercase;
-			background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+			background-image: linear-gradient(120deg, transparent 0%, transparent 50%, v.$color-white 50%);
 			background-size: 230%;
 			transition: all .4s;
 
@@ -106,7 +106,7 @@
 		&:hover,
 		&:active {
 			background-position: 100%;
-			color: $color-primary-darker;
+			color: v.$color-primary-darker;
 			transform: translateX(1rem);
 		}
 	}
@@ -132,7 +132,7 @@
 		&::after {
 			width: 3rem;
 			height: 2px;
-			background-color: $color-grey-dark-3;
+			background-color: v.$color-grey-dark-3;
 			display: inline-block;
 		}
 

@@ -1,5 +1,5 @@
-@import "../abstracts/variables";
-@import "../abstracts/mixins";
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
 
 .content-book {
 	display: flex;
@@ -8,18 +8,18 @@
 	padding: 4rem 0;
 	transform: skewY(-5deg);
 	background-image: linear-gradient(to right bottom,
-			rgba($color-primary-light, 0.8),
-			rgba($color-primary-dark, 0.8));
+			rgba(v.$color-primary-light, 0.8),
+			rgba(v.$color-primary-dark, 0.8));
 	margin: 5rem 0 18rem;
 
-	@include respond(tab-port) {
+	@include m.respond(tab-port) {
 		transform: skewY(0);
 	}
 
 	&>* {
 		transform: skewY(5deg);
 
-		@include respond(tab-port) {
+		@include m.respond(tab-port) {
 			transform: skewY(0);
 		}
 	}
@@ -46,7 +46,7 @@
 
 		&:focus,
 		&:active {
-			background-color: $color-grey-light-3;
+			background-color: v.$color-grey-light-3;
 			color: rgb(58, 57, 110);
 			font-weight: 900;
 			width: 50%;
@@ -55,17 +55,17 @@
 
 		&::selection {
 			background-color: rgb(58, 57, 110);
-			color: $color-grey-light-3;
+			color: v.$color-grey-light-3;
 		}
 
 		&::-webkit-input-placeholder {
 			font-weight: 700;
-			color: $color-grey-light-4;
+			color: v.$color-grey-light-4;
 		}
 	}
 
 	&__input:focus+&__button {
-		background-color: $color-grey-light-3;
+		background-color: v.$color-grey-light-3;
 	}
 
 	&__button {
@@ -75,7 +75,7 @@
 	}
 
 	&__icon {
-		fill: $color-grey-dark-3;
+		fill: v.$color-grey-dark-3;
 		height: 2rem;
 		margin-bottom: 3rem;
 		margin-left: -3.25rem;
@@ -89,12 +89,12 @@
 	grid-template-columns: repeat(4, 1fr);
 	padding: 0 2rem;
 
-	@include respond(tab-port) {
+	@include m.respond(tab-port) {
 		grid-template-columns: repeat(3, 1fr);
 		padding: 0 5rem;
 	}
 
-	@include respond(phone) {
+	@include m.respond(phone) {
 		grid-template-columns: repeat(2, 1fr);
 		padding: 0 1rem;
 		gap: 1rem;
@@ -104,7 +104,7 @@
 
 .card {
 	align-items: center;
-	background-color: $color-grey-light-3;
+	background-color: v.$color-grey-light-3;
 	border-radius: 1rem;
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 	display: flex;
@@ -114,7 +114,7 @@
 	transition: all .2s;
 
 	&:hover {
-		background-color: $color-grey-light-4;
+		background-color: v.$color-grey-light-4;
 		transform: translateY(-2rem);
 	}
 
@@ -131,7 +131,7 @@
 	}
 
 	&__title {
-		color: $color-primary-darker;
+		color: v.$color-primary-darker;
 		font-size: 1.7rem;
 		height: 20%;
 		margin: 0 1rem;
@@ -139,8 +139,8 @@
 	}
 
 	&__author {
-		border-top: 1px solid $color-primary-darker;
-		color: $color-secondary-dark;
+		border-top: 1px solid v.$color-primary-darker;
+		color: v.$color-secondary-dark;
 		font-size: 1.5rem;
 		height: 20%;
 		margin: 1rem;
@@ -162,7 +162,7 @@
 	transform: translateY(-3rem);
 	width: 40%;
 
-	@include respond(phone) {
+	@include m.respond(phone) {
 		width: 80%;
 		left: 10%;
 	}

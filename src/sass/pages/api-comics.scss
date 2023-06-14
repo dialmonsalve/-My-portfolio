@@ -1,18 +1,18 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
 
 .content-comic {
   align-items: center;
   background-image: linear-gradient(to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8));
+      rgba(v.$color-primary-light, 0.8),
+      rgba(v.$color-primary-dark, 0.8));
   display: flex;
   flex-direction: column;
   margin: 4rem 0 18rem;
   padding: 4rem 0;
   transform: skewY(-5deg);
 
-  @include respond(tab-port) {
+  @include m.respond(tab-port) {
     transform: skewY(0);
     padding: 0;
   }
@@ -20,7 +20,7 @@
   &>* {
     transform: skewY(5deg);
 
-    @include respond(tab-port) {
+    @include m.respond(tab-port) {
       transform: skewY(0);
     }
   }
@@ -30,40 +30,38 @@
 
   &__title {
     text-align: center;
-    font-size: $default-font-size * 2.5;
-    color: $color-primary-dark;
+    font-size: v.$default-font-size * 2.5;
+    color: v.$color-primary-dark;
   }
 
   &__count {
-    color: $color-secondary-light;
-    font-size: $default-font-size * 1.7;
+    color: v.$color-secondary-light;
+    font-size: v.$default-font-size * 1.7;
     margin-left: 1rem;
   }
 }
 
 .container-data {
-  height: 40rem;
-  overflow: hidden;
+  // height: 40rem;
+  // overflow: hidden;
 
-  @include respond(phone) {
+  @include m.respond(phone) {
     height: 25rem;
   }
 
   &__subtitle {
     font-size: 2rem;
-    color: $color-secondary-light;
+    color: v.$color-secondary-light;
     text-transform: uppercase;
   }
 
   &__img {
-    @include respond(phone) {
+    @include m.respond(phone) {
       // height: 100%;
-      max-width: 95%;
+      max-width: 100%;
       margin: 0 1.5rem;
     }
-
   }
-
 }
 
 .container-buttons {
@@ -75,47 +73,47 @@
     margin: 0 auto;
 
     &--minus {
-      @include btn(30%, 0, 0, 30%);
+      @include m.btn(30%, 0, 0, 30%);
       margin-right: 2rem;
     }
 
     &--random {
-      @include btn(5%, 5%, 5%, 5%);
+      @include m.btn(5%, 5%, 5%, 5%);
     }
 
     &--plus {
-      @include btn(0, 30%, 30%, 0);
+      @include m.btn(0, 30%, 30%, 0);
       margin-left: 2rem;
     }
   }
 
   &__link {
-    color: $color-grey-dark-3;
+    color: v.$color-grey-dark-3;
     align-self: flex-end;
-    font-size: $default-font-size;
+    font-size: v.$default-font-size;
 
     &--a {
       text-decoration: none;
 
       &:visited,
       &:link {
-        color: $color-grey-dark-3;
+        color: v.$color-grey-dark-3;
       }
 
       &:hover {
         text-decoration: underline;
-        color: $color-secondary-light;
+        color: v.$color-secondary-light;
       }
     }
   }
 }
 
 .inactive--minus {
-  @include btn-inactive(30%, 0, 0, 30%);
+  @include m.btn-inactive(30%, 0, 0, 30%);
   margin-right: 2rem;
 }
 
 .inactive--plus {
-  @include btn-inactive(0, 30%, 30%, 0);
+  @include m.btn-inactive(0, 30%, 30%, 0);
   margin-left: 2rem;
 }

@@ -1,3 +1,6 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
 .container-modal {
 	background-color: rgba(64, 51, 51, 0.4);
 	height: 100%;
@@ -12,12 +15,12 @@
 
 .modal {
 	align-items: center;
-	background-color: $color-primary-light;
+	background-color: v.$color-primary-light;
 	border-radius: 5px;
 	bottom: auto;
 	box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.8);
 	color: black;
-	font-size: $default-font-size;
+	font-size: v.$default-font-size;
 	display: flex;
 	left: 50%;
 	margin-right: -50%;
@@ -29,24 +32,24 @@
 	transform: translate(-50%, -50%);
 	width: 60%;
 
-	@include respond(tab-port){
+	@include m.respond(tab-port){
 		width: 90%;
 	}
 
 	&__contain {
 		
 		&--title {
-			color: $color-white;
+			color: v.$color-white;
 			text-transform: uppercase;
 		}
 
 		&--link {
 			text-decoration: none;
-			color: $color-primary-darker;
+			color: v.$color-primary-darker;
 			text-transform: lowercase;
 		}
 		& > p {
-			color: $color-white;
+			color: v.$color-white;
 			position: absolute;
 			bottom: 8%;
 			right: 3%;
