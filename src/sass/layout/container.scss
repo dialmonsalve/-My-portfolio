@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as m;
 
 .container{
-	background-color: v.$color-grey-dark;
+	background-color: v.$color-grey-light-1;
 	box-shadow: v.$shadow-dark;
 
 	@include m.respond(tab-port) {

@@ -2,7 +2,7 @@
 @use '../abstracts/mixins' as m;
 
 .modal-project {
-	background-color: rgb(v.$color-primary-dark, 0.6);
+	background-color: rgb(v.$color-primary-dark, 0.7);
 	height: 100%;
 	left: 0;
 	position: fixed;
@@ -28,17 +28,17 @@
 
 .modal-video {
 	&__video {
-		width: 1000px;
-		height: 450px;
+		width: 850px;
+		height: 350px;
 		border-radius: 1.5rem;
 
 		@include m.respond(tab-port) {
-			width: 800px;
-			height: 550px;
+			width: 500px;
+			height: 300px;
 		}
 
 		@include m.respond(phone) {
-			width: 300px;
+			width: 280px;
 			height: 250px;
 		}
 	}
