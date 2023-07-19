@@ -18,7 +18,6 @@ export class AstroBooks extends HTMLElement {
     search.addEventListener("change", ({ target }) => {
       if (target === null) return;
       this.consult = target.value;
-      localStorage.consult = this.consult;
     });
 
     form.addEventListener("submit", (e) => {
@@ -101,7 +100,9 @@ export class AstroBooks extends HTMLElement {
 							</h4>
 
 							<p class='card__author'>
-								Author(s): ${authors === undefined ? "No author(s)" : authors}</p>
+								Author(s): ${authors === undefined ? "No author(s)" : authors}
+              </p>
+              <a href='/api-books/${item.id}' >mas...</a>
 				</div>				`;
     });
   }
@@ -121,3 +122,6 @@ export class AstroBooks extends HTMLElement {
   }
 }
 customElements.define("astro-books", AstroBooks);
+
+
+// <a href='https://www.googleapis.com/books/v1/volumes/${item.id}' >mas...</a>

@@ -1,0 +1,28 @@
+---
+export async function getStaticPaths() {
+  
+  const urlFetch = `https://www.googleapis.com/books/v1/volumes?q=papa`;
+
+  const res = await fetch(urlFetch);
+  const { items } = await res.json();
+
+  return items.map((item:any ) => ({
+    params: {
+      id: item.id,
+    },
+    props: {
+      title: item.volumeInfo.title,
+    },
+  }));
+}
+
+const { id } = Astro.params;
+
+const { title } = Astro.props;
+
+// console.log(id);
+
+// console.log(Astro.props);
+---
+
+<div>Hola {title}</div>
