@@ -87,4 +87,15 @@ export const projects = [
     description:
       "This application is a shopping cart. Professor Juan de la Torre created it in his JavaScript course.",
   },
+  {
+    id: 9,
+    name: "Dream destination",
+    url: "09.png",
+    technologies: "React - SASS",
+    createTo: "My",
+    media: "09.mp4",
+    course: "My head",
+    description:
+      "This application allows you create hotels, rooms and reservations. It uses the following  technologies: React 18, react-router-dom 6.4, and Saas styles. It contains 2 routes: one public route (localhost:5173/)  that allows users create their reservation, and a private route (localhost:5173/api) that allows the admin and staff to create, edit, update and activate or deactivate hotels and their rooms. This first version is built with the context api and its state is managed by useRdecuer hook. It uses a fake database create in json-server.",
+  },
 ];
