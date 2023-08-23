@@ -1,0 +1,13 @@
+---
+import Layout from "../layout/Layout.astro";
+import Project from "../components/Project.astro";
+import "../sass/pages/proyectos.scss";
+
+import { projects } from "../../public/js/projects";
+---
+
+<Layout title="Proyectos" subtitle="proyectos">
+  <div class="projects">
+    {projects.map((project) => <Project project={project} />)}
+  </div>
+</Layout>

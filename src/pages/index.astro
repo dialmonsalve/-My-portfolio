@@ -1,15 +1,68 @@
 ---
 import Layout from "../layout/Layout.astro";
-import Project from "../components/Project.astro";
-import "../sass/pages/index.scss";
 
-import { projects } from "../../public/js/projects";
+import "../sass/pages/home.scss";
 ---
 
-<Layout title="Home" subtitle="projects">
-  <div class="container-projects">
-    <div class="projects">
-      {projects.map((project) => <Project project={project} />)}
-    </div>
-  </div>
+<Layout title="home" subtitle="Soy dialmonsalve">
+  <section class="container-photo">
+    <img
+      class="container-photo__photo"
+      src="/assets/me.png"
+      alt="Diego Monsalve"
+    />
+    <p class="container-photo__presentation">
+      De profesión: Ingeniero de productividad y calidad.
+      <span class="container-photo__presentation--span"
+        >Por pasión y convicción desarrollador web</span
+      >
+    </p>
+  </section>
+
+  <section class="resume">
+    <article class="skills">
+      <h4 class="skills__subtitle">Trayectoria</h4>
+
+      <p>
+        Desde el inicio de mi vida laboral a los 18 años, he mantenido un
+        constante progreso, enfrentando los desafíos que la vida nos presenta en
+        el camino.
+      </p>
+
+      <p>
+        Con más de 8 años de dedicación a la logística y la gestión de
+        inventarios, cuento con la experiencia necesaria para guiar a las
+        compañías en la creación y mantenimiento de software a medida, adaptado
+        a sus necesidades específicas.
+      </p>
+
+      <p>
+        Hace dos años, decidí adentrarme en el mundo del desarrollo web, con el
+        objetivo de poner en práctica mis conocimientos. Ahora, deseo compartir
+        lo que he aprendido con aquellas personas que necesitan de mis
+        servicios.
+      </p>
+    </article>
+
+    <article class="hobbies">
+      <h4 class="hobbies__subtitle">¿Y qué me gusta?</h4>
+      <p>
+        Siento pasión por mi familia, el desarrollo web y las tareas que
+        requieren un esfuerzo mental. Valorizo las relaciones interpersonales y
+        busco enriquecer mi conocimiento a través de la interacción con los
+        demás. Me entusiasma abordar cada actividad con pasión y dedicación, adicional
+        disfruto pasar tiempo con personas amenas y enriquecedoras. Me considero
+        una persona sociable y abierta a nuevos retos.
+      </p>
+      <p>
+        Mi vida social no entorpece mi compromiso laboral, lo cual me permite
+        llevar una vida tranquila y armoniosa, siempre con un profundo amor por
+        los animales y la naturaleza.
+      </p>
+      <p>
+        Como toque final, en mi rutina, la taza de café es un elemento
+        imprescindible en mi mesa.
+      </p>
+    </article>
+  </section>
 </Layout>

@@ -40,13 +40,13 @@
 		
 		&--title {
 			color: v.$color-white;
-			text-transform: uppercase;
+			// text-transform: uppercase;
 		}
 
 		&--link {
 			text-decoration: none;
 			color: v.$color-primary-darker;
-			text-transform: lowercase;
+			// text-transform: lowercase;
 		}
 		& > p {
 			color: v.$color-white;

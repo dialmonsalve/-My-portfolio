@@ -1,0 +1,88 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+
+.projects {
+	display: grid;
+	gap: 3rem;
+	grid-template-columns: repeat(3, 1fr);
+
+	@include m.respond(tab-port) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include m.respond(phone) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	&__card {
+		background-image: linear-gradient(40deg,
+		rgba(v.$color-primary-light, 0.8),
+		rgba(v.$color-primary-dark, 0.8));
+		border-radius: .5rem;
+		box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		height: 38rem;
+
+		@include m.respond(phone) {
+			margin: 0 auto;
+			width: 80%;
+		}
+
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.02);
+			transition: transform 0.3s ease-in;
+			outline: 3px solid v.$color-tertiary-light;
+			background-image: linear-gradient(120deg,
+		rgba(v.$color-primary-light, 0.8),
+		rgba(v.$color-primary-dark, 0.8));
+		}
+
+		& p {
+			font-size: 1rem;
+			align-self: flex-end;
+			right: 5%;
+			top: 2%;
+			color: white;
+			font-weight: 900;
+			text-transform: uppercase;
+		}
+		&--title {
+			color: v.$color-white;
+			font-size: v.$default-font-size;
+			margin: 0 1rem;
+			padding: 0.5rem;
+			text-transform: uppercase;
+		}
+
+		&--img {
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+			border-radius: 5px;
+			margin-bottom: 2rem;
+			height: 40%;
+
+			@include m.respond(phone) {
+				// width: 20rem;
+			}
+		}
+
+		&--technology,
+		&--createTo {
+			color: v.$color-white;
+			font-size: 1.2rem;
+			text-transform: uppercase;
+			font-weight: 900;
+			margin-top: 1.2rem;
+			overflow-wrap: break-word;
+
+			& span {
+				font-weight: normal;
+			}
+		}
+	}
+}

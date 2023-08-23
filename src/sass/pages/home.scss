@@ -1,0 +1,82 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.container-photo {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+
+	&__photo {
+		display: block;
+		border-radius: 100%;
+		width: 15%;
+	}
+
+	&__presentation {
+		color: v.$color-green-dark;
+		font-size: v.$default-font-size + .2rem;
+		margin-top: 2rem;
+		text-align: center;
+
+		&--span {
+			color: v.$color-tertiary-light;
+			display: inline-block;
+			transition: all .2s;
+
+			&:hover,
+			&:active {
+				box-shadow: 0 1rem, 2rem rgba(v.$color-black, .4);
+				color: v.$color-primary-light;
+				cursor: pointer;
+				transform: rotate(5deg) scale(1.1);
+			}
+		}
+	}
+}
+
+.resume {
+	display: flex;
+	font-size: 1.7rem;
+	gap: 3rem;
+
+	& p {
+		text-align: justify;
+		margin: 1.2rem;		
+	}
+
+	@include m.respond(tab-port) {
+		margin: 0 6rem;
+	}
+
+	@include m.respond(phone) {
+		flex-direction: column;
+		margin: 0 8rem;
+	}
+}
+
+.skills, .hobbies {
+	width: 50%;
+	text-align: center;
+
+	@include m.respond(phone){
+		width: 100%;
+	}
+}
+
+.skills {	
+	&__subtitle {
+		border-bottom: 1px solid v.$color-tertiary-dark;
+		color: v.$color-tertiary-dark;
+		margin-bottom: 1rem;
+	}
+}
+
+.hobbies {
+
+	&__subtitle {
+		border-bottom: 1px solid v.$color-green-darker;
+		color: v.$color-green-darker;
+	
+	}
+}

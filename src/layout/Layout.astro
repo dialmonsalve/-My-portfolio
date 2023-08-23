@@ -1,7 +1,7 @@
 ---
-import Header from "../components/landing/Header.astro";
-import Navigation from "../components/landing/Navigation.astro";
-import Footer from "../components/landing/Footer.astro";
+import Header from "./Header.astro";
+import Navigation from "./Navigation.astro";
+import Footer from "./Footer.astro";
 import "../sass/layout/container.scss";
 
 import "../sass/main.scss";
@@ -55,7 +55,7 @@ const { title, subtitle } = Astro.props;
       rel="stylesheet"
     />
 
-    <title>Mi Project | {title}</title>
+    <title>Mi Portafolio | {title}</title>
   </head>
   <body>
     <Modal />
@@ -63,11 +63,11 @@ const { title, subtitle } = Astro.props;
     <div class="container">
       <Header title={title} />
 
-      <section class="subtitle">
-        <h2 class="heading-secondary u-margin-bottom-small">{subtitle}</h2>
-      </section>
+      <main class="main">
+          <h2 class="heading-secondary">{subtitle}</h2>
+        <slot />
+      </main>
 
-      <slot />
       <Footer />
     </div>
   </body>

@@ -38,31 +38,44 @@
 		}
 
 		@include m.respond(phone) {
-			width: 280px;
-			height: 250px;
+			width: 28rem;
+			height: 20rem;
 		}
 	}
 }
 
 .modal-text {
-
+	
 	&__name {
 		color: v.$color-primary-darker;
 		font-size: v.$default-font-size + .4rem;
 		text-transform: uppercase;
 		font-weight: 900;
 		margin-bottom: 1rem;
+
+		@include m.respond(phone) {
+			font-size: 1rem;
+		}
+
 	}
 
 	&__technology, &__desc, &__course, &__made {
 		color: v.$color-primary-darker;
 		font-size: v.$default-font-size;
+		@include m.respond(phone) {
+			font-size: 1.2rem;
+			height: 40%;
+		}
 	}
 
 	&__made{
 
 		@include m.respond(tab-port) {
 			font-size: v.$default-font-size + .5rem;
+		}
+
+		@include m.respond(phone) {
+			font-size: 1.2rem;
 		}
 	}
 	& span {

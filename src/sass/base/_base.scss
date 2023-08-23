@@ -11,16 +11,18 @@
 html {
 	// *This defines what 1rem is
 	font-size: 62.5%; // ? 1rem = 10px; 10px/16px = 62.5%
-	
-	@include m.respond(tab-land) { //width <1200
+
+	@include m.respond(tab-land) {
+		//width <1200
 		font-size: 56.25%; // ? 1rem = 9px; 9px/16px = 56.25%
 	}
 
-	@include m.respond(tab-port) { //width <900
+	@include m.respond(tab-port) {
+		//width <900
 		font-size: 50%; // ? 1rem = 8px; 8px/16px = 50%
 	}
-	
-	@include m.respond(big-desktop) { 
+
+	@include m.respond(big-desktop) {
 		font-size: 75%; // ? 1rem = 12px; 12px/16px = 75%
 	}
 }
@@ -31,5 +33,17 @@ body {
 
 	@include m.respond(tab-port) {
 		padding: 0
+	}
+}
+
+.main {
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 4rem 6rem;
+	gap: 3rem;
+	@include m.respond(phone){
+		padding: 4rem 0;
 	}
 }

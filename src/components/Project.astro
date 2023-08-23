@@ -17,16 +17,17 @@ const {
 
 <astro-project data-id={id}>
   <div class="projects__card" id="projects">
-    <h3 class="projects__card--title">{name} <span>Click to more</span></h3>
+    <p>Click para mas...</p>
+    <h3 class="projects__card--title">{name} </h3>
     <img
       class="projects__card--img"
       src={`/projects/${url}`}
       alt="project formDi"
     />
-    <p class="projects__card--technology">
-      technologies: <span>{technologies}</span>
-    </p>
-    <p class="projects__card--createTo">Made to: <span>{createTo}</span></p>
+    <h6 class="projects__card--technology">
+      Tecnologías: <span>{technologies}</span>
+    </h6>
+    <h6 class="projects__card--createTo">hecho por: <span>{createTo}</span></h6>
   </div>
 </astro-project>
 
